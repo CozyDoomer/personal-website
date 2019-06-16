@@ -10,7 +10,7 @@ from upload import upload
 from cv import cv
 
 # import classifier depending on environment variable set in Dockerfile
-model_name = os.getenv('NNET', 'resnet50')
+model_name = os.getenv('NNET', 'ResNet50')
 nnet_library = os.getenv('CLASSIFICATIONLIBRARY', 'fastai')
 
 if nnet_library == 'pytorch':
@@ -29,7 +29,7 @@ model_links = {
     'PnasNet5': 'https://arxiv.org/pdf/1712.00559.pdf',
     'ResNet152': 'https://arxiv.org/pdf/1512.03385.pdf',
     'ResNet50': 'https://arxiv.org/pdf/1512.03385.pdf',
-    'InceptionResnetv2': 'https://arxiv.org/pdf/1602.07261.pdf'
+    'InceptionResNetv2': 'https://arxiv.org/pdf/1602.07261.pdf'
 }
 
 library_links = {
@@ -87,7 +87,7 @@ def send_message():
         app.config.from_object('email_conf.Config')
         mail = Mail(app)
         msg = Message(sender=current_app.config['MAIL_USERNAME'], recipients=[current_app.config['MAIL_USERNAME']],
-                    subject=f'message from {form.name.data} through website')
+                      subject=f'message from {form.name.data} through website')
         mail.body = form.message.data
         msg.html = f'{form.email.data}<br>{mail.body}'
         mail.send(msg)

@@ -13,7 +13,7 @@ image_classifier = Blueprint('image_classifier', __name__)
 app = Flask(__name__)
 
 model_links = {
-    'inceptionresnetv2':  'https://arxiv.org/pdf/1712.00559.pdf'
+    'InceptionResNetv2':  'https://arxiv.org/pdf/1712.00559.pdf'
 }
 
 
@@ -26,7 +26,7 @@ def init_learner(model_name):
 
 def get_name():
     # inceptionresnetv2 default for fastai classification
-    return os.getenv('NNET', 'inceptionresnetv2')
+    return os.getenv('NNET', 'InceptionResNetv2')
 
 
 def get_link(model_name):

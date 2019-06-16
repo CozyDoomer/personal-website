@@ -45,22 +45,22 @@ RUN echo 'downloading image-classifier weights'
 
 # pnasnet-5, requires quite some ram and cpu
 #ADD https://gitreleases.dev/gh/DollofCuty/deep-learning-webapp/latest/pnasnet5.pth static/weights/pnasnet5.pth
-#ENV NNET pnasnet5
+#ENV NNET PnasNet5
 
 # Resnet-152
 #ADD https://download.pytorch.org/models/resnet152-b121ed2d.pth static/weights/resnet152.pth
-#ENV NNET resnet152
+#ENV NNET ResNet152
 
 # Resnet-50
 #ADD https://download.pytorch.org/models/resnet50-19c8e357.pth static/weights/resnet50.pth
-#ENV NNET resnet50
+#ENV NNET ResNet50
 
 # fastai 
 ENV CLASSIFICATION-LIBRARY fastai
 
 # Inception-Resnetv2
 ADD https://gitreleases.dev/gh/DollofCuty/deep-learning-webapp/latest/inceptionresnetv2.pkl static/weights/inceptionresnetv2.pkl
-ENV NNET inceptionresnetv2
+ENV NNET InceptionResNetv2
 
 
 # Object Detection

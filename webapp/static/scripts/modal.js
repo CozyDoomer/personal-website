@@ -16,13 +16,13 @@ $(document).ready(function() {
         styletrans: {
             title: 'Style Transfer between Images',
             tag: 'EXPERIMENTING WITH DEEP LEARNING.',
-            detail: 'From the 2nd fast.ai course (2018) I got the Idea to try different networks for transfering art styles. Turns out the VGG convolutional neural network works great for this but I never continued the experiments outside these few examples.',
+            detail: 'I got the Idea from the 2nd fast.ai course (2018) to try different networks for transfering art styles. Turns out the VGG convolutional neural network works great for this but I never continued the experiments outside these few examples.',
             link: 'https://github.com/DollofCuty/Deep-Learning/blob/master/unstructured-data/image/style-transfer/style_transfer_fastai.ipynb'
         },
         houseprices: {
             title: 'House Prices: Advanced Regression',
             tag: 'STRUCTURED DATA REGRESSION.',
-            detail: 'Playground Competition (no price pool) where I trained multiple models: Lasso regression model, XGBoost model, LGBM model with heavy feature engineering, and blending to reach the top 1% of 4700 other Data Scientists (rank 30).',
+            detail: 'Playground Competition (no price pool) where I trained multiple models: Lasso regression model, XGBoost model, LGBM model with heavy feature engineering, and blending to reach the top 1% of about 4700 other Data Scientists.',
             link: 'https://github.com/DollofCuty/Deep-Learning/blob/master/structured-data/house-prices/house_prices_fe.ipynb'
         },
         thissite: {
@@ -34,7 +34,7 @@ $(document).ready(function() {
         predictsales: {
             title: 'Predict Future Sales',
             tag: 'STRUCTURED TIME SERIES DATA.',
-            detail: 'The Mall is a place to follow the latest fashion purchases of your friends and favorite celebrities. Built with Node.js and Handlebars. Features the ability to import thousands of top brands products into one shopping site.',
+            detail: 'I completed this challenge with XGBoost which is a gradient tree boosting library written in Python, preprocessing of the data and heavy feature engineering. Currently placed 351th of 3403 Data Scientists on Kaggle.',
             link: 'https://github.com/DollofCuty/Deep-Learning/blob/master/structured-data/predict-future-sales/predict_sales-xgboost.ipynb'
         }
     };
