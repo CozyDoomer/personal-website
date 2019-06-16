@@ -10,6 +10,7 @@ etc/nginx/certs/**
 
 *.png
 *.jpg
+*.webp
 *.pdf
 
 *.pth
