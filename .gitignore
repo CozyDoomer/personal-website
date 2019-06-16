@@ -1,6 +1,7 @@
 /virtual_env
 
 webapp/instance
+webapp/static/uploaded/**
 __pycache__/
 webapp/static/conf/email.csv
 
