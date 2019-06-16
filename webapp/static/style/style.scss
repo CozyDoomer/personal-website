@@ -707,7 +707,7 @@ section {
                 @for $i from 1 through 12 {
                     &:nth-child(#{$i}) {
                         .card {
-                            background: url('/static/img/thumb-#{$i}.jpg') center center/cover;
+                            background: url('/static/img/thumb-#{$i}.webp') center center/cover;
                         }
                     }
                 }
@@ -759,7 +759,7 @@ section {
             cursor: pointer;
             @for $i from 1 through 4 {
                 #thumb-#{$i} {
-                    background: url('/static/img/demo-#{$i}.jpg') center center/cover;
+                    background: url('/static/img/demo-#{$i}.webp') center center/cover;
                 }
             }
             .fade-wrap {

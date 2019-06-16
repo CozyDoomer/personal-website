@@ -121,7 +121,7 @@ $(document).ready(function() {
         });
         $.each($('#modal .slide'), function(index, value) {
             $(this).css({
-                background: "url('/static/img/slides/" + id + '-' + index + ".jpg') center center/cover",
+                background: "url('/static/img/slides/" + id + '-' + index + ".webp') center center/cover",
                 backgroundSize: 'cover'
             });
 
