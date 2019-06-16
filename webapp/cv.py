@@ -15,4 +15,4 @@ def show():
 
 @cv.route("/cv/download/")
 def download():
-    return send_file('static/documents/cv.pdf', as_attachment=True)
+    return send_file('static/documents/cv_unterrainer.pdf', as_attachment=True)

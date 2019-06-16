@@ -19,21 +19,23 @@ $(document).ready(function() {
             detail: 'From the 2nd fast.ai course (2018) I got the Idea to try different networks for transfering art styles. Turns out the VGG convolutional neural network works great for this but I never continued the experiments outside these few examples.',
             link: 'https://github.com/DollofCuty/Deep-Learning/blob/master/unstructured-data/image/style-transfer/style_transfer_fastai.ipynb'
         },
-        mystand: {
-            title: 'MyStand',
-            tag: 'CROWD-FUNDED CHARITY.',
-            detail: 'MyStand is a crowd-funding, media sharing website, that has you donating actions instead of money out of your pocket. Single page App built with Node.js on Sails and Angular 2.0. Features social media sharing and large scale crowd-funding.',
+        houseprices: {
+            title: 'House Prices: Advanced Regression',
+            tag: 'STRUCTURED DATA REGRESSION.',
+            detail: 'Playground Competition (no price pool) where I trained multiple models: Lasso regression model, XGBoost model, LGBM model with heavy feature engineering, and blending to reach the top 1% of 4700 other Data Scientists (rank 30).',
+            link: 'https://github.com/DollofCuty/Deep-Learning/blob/master/structured-data/house-prices/house_prices_fe.ipynb'
         },
         thissite: {
             title: 'christianunterrainer.com',
             tag: 'REFRESHING MY WEBDEV SKILLS.',
             detail: 'I started working on a personal website for multiple reasons but the one that stood out is to try out the inference of machine learning models in production. The backend written in flask made it really easy to implement this and I started focusing more on the frontend.',
-            link: 'https://christianunterrainer.com'
+            link: 'https://github.com/DollofCuty/personal-website/tree/master'
         },
-        themall: {
-            title: 'The Mall',
-            tag: 'PEER GUIDED SHOPPING.',
+        predictsales: {
+            title: 'Predict Future Sales',
+            tag: 'STRUCTURED TIME SERIES DATA.',
             detail: 'The Mall is a place to follow the latest fashion purchases of your friends and favorite celebrities. Built with Node.js and Handlebars. Features the ability to import thousands of top brands products into one shopping site.',
+            link: 'https://github.com/DollofCuty/Deep-Learning/blob/master/structured-data/predict-future-sales/predict_sales-xgboost.ipynb'
         }
     };
 

@@ -508,6 +508,14 @@ nav .active {
     opacity: 1;
 }
 
+.shift-right{
+    margin-right: 20px !important;
+}
+
+.shift-left{
+    margin-left: 80px !important;
+}
+
 section {
     padding: 70px 0 70px 0;
     color: #616161;
@@ -1410,5 +1418,13 @@ footer .footnote .highlight {
     }
 }
 
+@media (max-width:600px) {
+    .shift-right{
+        margin-right:0px !important;
+    }
+    .shift-left{
+        margin-left: 0px !important;
+    }
+}
 
 /*# sourceMappingURL=style.css.map */

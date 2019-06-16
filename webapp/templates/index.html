@@ -173,6 +173,7 @@
                         </div>
                         <br>
                         <p>I'm currently looking for a job in the Machine Learning field.</p>
+                        <p>You can download my CV <a class="highlight" href="{{ url_for('cv.download') }}">here</a>.</p>
                         <p>If you are interested in working together <span class="page-link highlight" dest="contact">send me a message.</span></p>
                     </div>
                 </div>
@@ -189,15 +190,15 @@
                 <div class="flex row">
                     <div class="filter" data-filter="all">ALL</div>
                     <div class="filter" data-filter=".compvision">COMPUTERVISION</div>
-                    <div class="filter" data-filter=".webdev">WEBDEV</div>
                     <div class="filter" data-filter=".ml">MACHINELEARNING</div>
+                    <div class="filter" data-filter=".webdev">WEBDEVELOPMENT</div>
                 </div>
                 <div class="float-bar">
                     <div class="flex row">
                         <div class="filter" data-filter="all">ALL</div>
                         <div class="filter" data-filter=".compvision">COMPUTERVISION</div>
-                        <div class="filter" data-filter=".webdev">WEBDEV</div>
                         <div class="filter" data-filter=".ml">MACHINELEARNING</div>
+                        <div class="filter" data-filter=".webdev">WEBDEVELOPMENT</div>
                     </div>
                 </div>
             </div>
@@ -218,8 +219,8 @@
                     <div>
                         <div class="card"></div>
                         <div class="text">
-                            <div class="bold">Human Protein Atlas Image</div>
-                            <span class="highlight">Kaggle Competition in Python</span>
+                            <div class="bold">Human Protein Atlas</div>
+                            <span class="highlight">Kaggle Competition with Python</span>
                         </div>
                         <div class="button" id="hpa">LEARN MORE</div>
                     </div>
@@ -229,10 +230,10 @@
                     <div>
                         <div class="card"></div>
                         <div class="text">
-                            <div class="bold">Kaggle</div>
-                            <span class="highlight">Machine Learning Competitions</span>
+                            <div class="bold">House Prices Regression</div>
+                            <span class="highlight">Kaggle Competition with Python</span>
                         </div>
-                        <div class="button" id="mystand">LEARN MORE</div>
+                        <div class="button" id="houseprices">LEARN MORE</div>
                     </div>
                 </div>
 
@@ -263,10 +264,10 @@
                     <div>
                         <div class="card"></div>
                         <div class="text">
-                            <div class="bold">The Mall</div>
-                            <span class="highlight">Node + React.js</span>
+                            <div class="bold">Predict Future Sales</div>
+                            <span class="highlight">Kaggle Competition with Python</span>
                         </div>
-                        <div class="button" id="themall">LEARN MORE</div>
+                        <div class="button" id="predictsales">LEARN MORE</div>
                     </div>
                 </div>
             </div>
@@ -279,7 +280,7 @@
                 <div class="header waypoint" data-animation="slide-in-left">DEMOS</div>
                 <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
 
-                <div class="flex row wrap">
+                <div class="flex row wrap shift-right">
                     <div class="flex row-gt-sm">
                         <a href="{{ url_for('image_classifier.show') }}">
                             <div class="demo-wrap waypoint" data-animation="fade-in" data-delay=".4s">
@@ -296,7 +297,7 @@
                             </div>
                         </a>
                         <a href="{{ url_for('object_detection.show') }}">
-                            <div class="demo-wrap waypoint" data-animation="fade-in" data-delay=".6s">
+                            <div class="demo-wrap waypoint shift-left" data-animation="fade-in" data-delay=".6s">
                                 <div class="fade-wrap">
                                     <div class="thumb" id="thumb-2"></div>
                                     <div class="label bold">Object Detection</div>
@@ -383,21 +384,12 @@
         <img src="/static/img/slides/hpa-0.jpg" />
         <img src="/static/img/slides/hpa-1.jpg" />
         <img src="/static/img/slides/hpa-2.jpg" />
-        <img src="/static/img/slides/never-0.jpg" />
-        <img src="/static/img/slides/never-1.jpg" />
-        <img src="/static/img/slides/never-2.jpg" />
         <img src="/static/img/slides/styletrans-0.jpg" />
         <img src="/static/img/slides/styletrans-1.jpg" />
         <img src="/static/img/slides/styletrans-2.jpg" />
         <img src="/static/img/slides/gem7-0.jpg" />
         <img src="/static/img/slides/gem7-1.jpg" />
         <img src="/static/img/slides/gem7-2.jpg" />
-        <img src="/static/img/slides/themall-0.jpg" />
-        <img src="/static/img/slides/themall-1.jpg" />
-        <img src="/static/img/slides/themall-2.jpg" />
-        <img src="/static/img/slides/walker-0.jpg" />
-        <img src="/static/img/slides/walker-1.jpg" />
-        <img src="/static/img/slides/walker-2.jpg" />
     </div>
 </body>
 
