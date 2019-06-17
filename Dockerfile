@@ -81,7 +81,8 @@ RUN chown -R webapp:webapp ./
 USER webapp
 
 EXPOSE 8080
+ENV PORT 8080
 
-CMD gunicorn -R --max-requests 20 --bind 0.0.0.0:8080 --timeout 300 main:app 
+CMD gunicorn -c static/conf/gunicorn_config.py main:app 
 
 #ENTRYPOINT ["./boot.sh"] 
