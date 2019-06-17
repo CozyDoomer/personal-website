@@ -99,4 +99,5 @@ def send_message():
 install_secret_key(app)
 
 if __name__ == '__main__':
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     app.run(debug=False, host='0.0.0.0', port=8080)
