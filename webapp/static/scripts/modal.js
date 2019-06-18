@@ -13,7 +13,7 @@ $(document).ready(function () {
       detail:
         "Developed models capable of classifying mixed patterns of proteins in microscope images. Placed in the top 5% of competitors with usage of the fast.ai library built on PyTorch, extensive testing of neural network structures and image processing.",
       link:
-        "https://www.kaggle.com/c/human-protein-atlas-image-classification/overview"
+        "https://github.com/DollofCuty/Machine-Learning/blob/master/unstructured-data/image/protein-detection/seresnext_4channel_external.ipynb"
     },
     styletrans: {
       title: "Style Transfer between Images",
@@ -21,7 +21,7 @@ $(document).ready(function () {
       detail:
         "I got the Idea from the 2nd fast.ai course (2018) to try different networks for transfering art styles. Turns out the VGG convolutional neural network works great for this but I never continued the experiments outside these few examples.",
       link:
-        "https://github.com/DollofCuty/Deep-Learning/blob/master/unstructured-data/image/style-transfer/style_transfer_fastai.ipynb"
+        "https://github.com/DollofCuty/Machine-Learning/blob/master/unstructured-data/image/style-transfer/style_transfer_fastai.ipynb"
     },
     houseprices: {
       title: "House Prices: Advanced Regression",
@@ -29,7 +29,7 @@ $(document).ready(function () {
       detail:
         "Playground Competition (no price pool) where I trained multiple models: Lasso regression model, XGBoost model, LGBM model with heavy feature engineering, and blending to reach the top 1% of about 4700 other Data Scientists.",
       link:
-        "https://github.com/DollofCuty/Deep-Learning/blob/master/structured-data/house-prices/house_prices_fe.ipynb"
+        "https://github.com/DollofCuty/Machine-Learning/blob/master/structured-data/house-prices/house_prices_fe.ipynb"
     },
     thissite: {
       title: "christianunterrainer.com",
@@ -44,7 +44,7 @@ $(document).ready(function () {
       detail:
         "I completed this challenge with XGBoost which is a gradient tree boosting library written in Python, preprocessing of the data and heavy feature engineering. Currently placed 351th of 3403 Data Scientists on Kaggle.",
       link:
-        "https://github.com/DollofCuty/Deep-Learning/blob/master/structured-data/predict-future-sales/predict_sales-xgboost.ipynb"
+        "https://github.com/DollofCuty/Machine-Learning/blob/master/structured-data/predict-future-sales/predict_sales-xgboost.ipynb"
     }
   };
 
