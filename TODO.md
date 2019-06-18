@@ -1,3 +1,3 @@
-- finish and include object detection model
+- image input with ajax, don't reload the whole site
 
-- write a better frontend
+- more mobile layout fixes (skill bars, project filter)
