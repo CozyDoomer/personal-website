@@ -1,7 +1,7 @@
 #!/venv/bin python
 
 import os
-from flask import Flask, Blueprint, render_template, send_file, current_app
+from flask import Flask, Blueprint, render_template, send_from_directory, send_file, current_app
 
 cv = Blueprint('cv', __name__)
 
@@ -15,4 +15,4 @@ def show():
 
 @cv.route("/cv/download/")
 def download():
-    return send_file('static/documents/cv_unterrainer.pdf', as_attachment=True)
+    return send_file('./static/documents/cv_unterrainer.pdf', as_attachment=True)

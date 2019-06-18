@@ -331,6 +331,9 @@ def draw_bbox_on_orig(original_image_path, transformed_image, scores, bbox_preds
     """map the predicted bounding box on the original image and draw it"""
     # get proportion to the original image to rescale bbox
     img = PILImage.open(original_image_path)
+    if '.gif' in original_image_path:
+        img = img.convert("RGB")
+        print('convert gif to rgb')
     img_width, img_height = img.size
     tfm_image_width, tfm_image_height = transformed_image.size
     x_prop = img_width / tfm_image_width
@@ -348,13 +351,13 @@ def draw_bbox_on_orig(original_image_path, transformed_image, scores, bbox_preds
         bbox_pred[1::2] = [y_prop*y for y in bbox_pred[1::2]]
         print(f'bbox on original size: {bbox_pred}')
         draw.text((bbox_pred[0] + 3, bbox_pred[1] + 3),
-                  f'{score*100:.2f}% {class_name}',       (0, 0, 0), font=fnt)
+                  f'{score*100:.2f}% {class_name}', (0, 0, 0), font=fnt)
         draw.text((bbox_pred[0] + 5, bbox_pred[1] + 3),
-                  f'{score*100:.2f}% {class_name}',       (0, 0, 0), font=fnt)
+                  f'{score*100:.2f}% {class_name}', (0, 0, 0), font=fnt)
         draw.text((bbox_pred[0] + 5, bbox_pred[1] + 5),
-                  f'{score*100:.2f}% {class_name}',       (0, 0, 0), font=fnt)
+                  f'{score*100:.2f}% {class_name}', (0, 0, 0), font=fnt)
         draw.text((bbox_pred[0] + 3, bbox_pred[1] + 5),
-                  f'{score*100:.2f}% {class_name}',       (0, 0, 0), font=fnt)
+                  f'{score*100:.2f}% {class_name}', (0, 0, 0), font=fnt)
         draw.text((bbox_pred[0] + 4, bbox_pred[1] + 4),
                   f'{score*100:.2f}% {class_name}', (255, 255, 255), font=fnt)
 

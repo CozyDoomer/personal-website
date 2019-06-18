@@ -59,13 +59,13 @@ RUN echo 'downloading image-classifier weights'
 ENV CLASSIFICATION-LIBRARY fastai
 
 # Inception-Resnetv2
-#ADD https://gitreleases.dev/gh/DollofCuty/deep-learning-webapp/latest/inceptionresnetv2.pkl static/weights/inceptionresnetv2.pkl
+ADD https://gitreleases.dev/gh/DollofCuty/deep-learning-webapp/latest/inceptionresnetv2.pkl static/weights/inceptionresnetv2.pkl
 ENV NNET InceptionResNetv2
 
 
 # Object Detection
 # RetinaNet with ResNet-34 backbone
-#ADD https://gitreleases.dev/gh/DollofCuty/deep-learning-webapp/latest/retinanet_resnet34.pkl static/weights/retinanet_resnet34.pkl
+ADD https://gitreleases.dev/gh/DollofCuty/deep-learning-webapp/latest/retinanet_resnet34.pkl static/weights/retinanet_resnet34.pkl
 
 # alternatively download the weights for one model with the links above 
 # store them in webapp/static/weights/<model>.pth in the local repository 
