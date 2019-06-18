@@ -11,10 +11,19 @@
     ],
     "homepage": "http://materialdesignicons.com",
     "authors": [
-        { "name": "Austin Andrews", "homepage": "http://templarian.com" },
-        { "name": "Google", "homepage": "http://www.google.com/design" }
+        {
+            "name": "Austin Andrews",
+            "homepage": "http://templarian.com"
+        },
+        {
+            "name": "Google",
+            "homepage": "http://www.google.com/design"
+        }
     ],
-    "license": ["OFL-1.1", "MIT"],
+    "license": [
+        "OFL-1.1",
+        "MIT"
+    ],
     "ignore": [
         "*.md",
         "*.json"

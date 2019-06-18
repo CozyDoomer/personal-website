@@ -1,6 +1,9 @@
 #!/venv/bin python
 
-import os, json, sys, logging
+import os
+import json
+import sys
+import logging
 from flask import Flask, render_template, current_app, request, flash, jsonify
 from flask_mail import Mail, Message
 from forms import EmailForm

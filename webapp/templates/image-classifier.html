@@ -2,143 +2,153 @@
 <html>
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141674173-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141674173-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-141674173-1');
-    </script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-141674173-1');
+  </script>
 
-    <title>Image Classifier</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>Image Classifier</title>
 
-    <!-- HOSTED -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800'
-        rel='stylesheet' type='text/css'>
-    <link href="/static/fonts/mdi/css/materialdesignicons.min.css"media="all"rel="stylesheet"/>
+  <!-- HOSTED -->
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800'
+    rel='stylesheet' type='text/css'>
+  <link href="/static/fonts/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" />
 
-    <!-- LOCAL -->
-    <link rel="stylesheet" href="/static/style/single_page_style.css">
-    <link rel='shortcut icon' href='/static/favicon.ico' type='image/x-icon' />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous">
+  <!-- LOCAL -->
+  <link rel="stylesheet" href="/static/style/single_page_style.css">
+  <link rel='shortcut icon' href='/static/favicon.ico' type='image/x-icon' />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <!-- HOSTED -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+  <!-- HOSTED -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
 
-    <!-- LOCAL -->
-    <script src="/static/scripts/single_page.js"></script>
+  <!-- LOCAL -->
+  <script src="/static/scripts/single_page.js"></script>
 </head>
 
 <body>
-    <div class="overflow-wrap single-page"> 
-        <!-- DEMOS -->
-        <div class="container flex">
-            <div class="header waypoint" data-animation="slide-in-left">IMAGE CLASSIFIER</div>
-            <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+  <div class="overflow-wrap dark-bg content">
+    <!-- DEMOS -->
+    <div class="container flex">
+      <div class="header waypoint" data-animation="slide-in-left">IMAGE CLASSIFIER</div>
+      <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
 
-            {% if not filename %}
+      {% if not filename %}
 
-            <p class="center hide-medium hide-small">Choose an image to run inference of a
-                <a href="{{ link }}">{{  name  }}</a> model trained on <a href="http://www.image-net.org/">image-net</a>!</p>
-            <p class="center hide-large">Choose an image to run the model!</p>
+      <p class="hide-medium hide-small">Choose an image to run inference of a
+        <a href="{{ link }}">{{  name  }}</a> model trained on <a href="http://www.image-net.org/">image-net</a>!</p>
+      <p class="hide-large">Choose an image to run the model!</p>
 
-            <form class="center"action="{{ url_for( 'upload.upload_file', reason='image-classifier' ) }}"
-                method="POST"enctype=multipart/form-data> <input type=file name=file style="width: 250px;">
-                <input type=submit>
-            </form>
+      <form action="{{ url_for( 'upload.upload_file', reason='image-classifier' ) }}" method="POST"
+        enctype=multipart/form-data> <label for="file-upload" class="custom-file-upload">
+        UPLOAD IMAGE
+        </label>
+        <input id="file-upload" type=file name=file onchange="form.submit()">
+      </form>
 
-            {% else %}
-            <!-- if filename-->
+      {% else %}
+      <!-- if filename-->
 
-            {% if prediction %}
+      {% if prediction %}
 
-            <p class="center"><em>Results</em></p>
+      <p><em>Results</em></p>
 
-            <div class="center padding-small hide-small">
-                    <h3>{{prediction[0]}} with {{confidence[0]}}% confidence</h3>
-                    <h4>{{prediction[1]}} with {{confidence[1]}}% confidence</h4>
-                    <h4>{{prediction[2]}} with {{confidence[2]}}% confidence</h4>
-            </div>
-            <div class="center hide-medium hide-large">
-                <h4>{{prediction[0]}}: {{confidence[0]}}%</h4>
-                <h5>{{prediction[1]}}: {{confidence[1]}}%</h5>
-            </div>
+      <div class="padding-small hide-small">
+        <h3>{{prediction[0]}} with {{confidence[0]}}% confidence</h3>
+        <h4>{{prediction[1]}} with {{confidence[1]}}% confidence</h4>
+        <h4>{{prediction[2]}} with {{confidence[2]}}% confidence</h4>
+      </div>
+      <div class="hide-medium hide-large">
+        <h4>{{prediction[0]}}: {{confidence[0]}}%</h4>
+        <h5>{{prediction[1]}}: {{confidence[1]}}%</h5>
+      </div>
 
-            {% else %}
+      {% else %}
 
-            <p class="center"><em>This will take 5-10 seconds!</em></p>
+      <p><em>This will take 5-10 seconds!</em></p>
 
-            {% endif %}
+      {% endif %}
 
-            <div class="center hide-small">
-                <img src="{{ url_for('upload.send_file', reason='image-classifier', filename=filename) }}" class="image" style="max-height:300px">
-            </div>
-    
-            <div class="center hide-medium hide-large">
-                <img src="{{ url_for('upload.send_file', reason='image-classifier', filename=filename) }}" class="image" style="max-height:250px">
-            </div>
+      <div class="hide-small">
+        <img src="{{ url_for('upload.send_file', reason='image-classifier', filename=filename) }}" class="image"
+          style="max-height:300px">
+      </div>
 
-            {% endif %} 
+      <div class="hide-medium hide-large">
+        <img src="{{ url_for('upload.send_file', reason='image-classifier', filename=filename) }}" class="image"
+          style="max-height:250px">
+      </div>
 
-            {% if prediction %}
+      {% endif %}
+      {% if prediction %}
 
-            <div class="center padding-16 hide-small">
-                <a href="{{ url_for('image_classifier.show', filename=filename) }}" class="button center padding-large black xlarge wide animate-opacity">TRY ANOTHER</a>
-            </div>
-    
-            <div class="center padding-small hide-medium hide-large">
-                <a href="{{ url_for('image_classifier.show', filename=filename) }}" class="button center padding-medium black small wide animate-opacity" ">TRY ANOTHER</a>
-            </div>
+      <div class="padding-16 hide-small">
+        <a href="{{ url_for('image_classifier.show', filename=filename) }}"
+          class="button padding-large black xlarge wide animate-opacity">TRY ANOTHER</a>
+      </div>
 
-            {% elif filename %}
+      <div class="padding-small hide-medium hide-large">
+        <a href="{{ url_for('image_classifier.show', filename=filename) }}"
+          class="button padding-medium black small wide animate-opacity" ">TRY ANOTHER</a>
+      </div>
 
-            <div class="center padding-16 hide-small">
-                <a href="{{ url_for('image_classifier.analyze', filename=filename) }}" class="button center padding-large black xlarge wide animate-opacity" onclick="$(this).closest('div').remove();">ANALYZE</a>
-            </div>
-    
-            <div class="center padding-small hide-medium hide-large">
-                <a href="{{ url_for('image_classifier.analyze', filename=filename) }}" class="button center padding-medium black small wide animate-opacity" onclick="$(this).closest('div').remove();">ANALYZE</a>
-            </div>
+      {% elif filename %}
 
-            {% endif %}
-        </div>
+      <div class=" padding-16 hide-small">
+          <a href="{{ url_for('image_classifier.analyze', filename=filename) }}"
+            class="button padding-large black xlarge wide animate-opacity"
+            onclick="$(this).closest('div').remove();">ANALYZE</a>
+      </div>
+
+      <div class="padding-small hide-medium hide-large">
+        <a href="{{ url_for('image_classifier.analyze', filename=filename) }}"
+          class="button padding-medium black small wide animate-opacity"
+          onclick="$(this).closest('div').remove();">ANALYZE</a>
+      </div>
+
+      {% endif %}
     </div>
+  </div>
 </body>
 <!-- Footer -->
-<footer style="position: fixed; left: 0; bottom: 0; right: 0">
-    <a class="mdi mdi-chevron-double-left page-link" href="{{ url_for('home') }}"></a>
+<footer>
+  <a class="mdi mdi-chevron-double-left page-link" href="{{ url_for('home') }}"></a>
 
-    <div class="icon-wrap flex row">
-        <a href="https://github.com/DollofCuty">
-            <div class="flex icon" id="icon-2">
-                <i class="fab fa-github fb"></i>
-            </div>
-        </a>
-        <a href="https://www.kaggle.com/dollofcuty">
-            <div class="flex icon" id="icon-3">
-                <i class="fab fa-kaggle fb"></i>
-            </div>
-        </a>
-        <a href="https://angel.co/christian-unterrainer">
-            <div class="flex icon" id="icon-4">
-                <i class="fab fa-angellist fb"></i>
-            </div>
-        </a>
-        <a href="https://www.xing.com/profile/Christian_Unterrainer3">
-            <div class="flex icon" id="icon-5">
-                <i class="fab fa-xing fb"></i>
-            </div>
-        </a>
-    </div>
-    <div class="info-box">
-        <div class="footnote">CHRISTIAN UNTERRAINER <span class="highlight">&copy;2019</span></div>
-    </div>
+  <div class="icon-wrap flex row">
+    <a href="https://github.com/DollofCuty" target="_blank">
+      <div class="flex icon" id="icon-2">
+        <i class="fab fa-github fb"></i>
+      </div>
+    </a>
+    <a href="https://www.kaggle.com/dollofcuty" target="_blank">
+      <div class="flex icon" id="icon-3">
+        <i class="fab fa-kaggle fb"></i>
+      </div>
+    </a>
+    <a href="https://angel.co/christian-unterrainer" target="_blank">
+      <div class="flex icon" id="icon-4">
+        <i class="fab fa-angellist fb"></i>
+      </div>
+    </a>
+    <a href="https://www.xing.com/profile/Christian_Unterrainer3" target="_blank">
+      <div class="flex icon" id="icon-5">
+        <i class="fab fa-xing fb"></i>
+      </div>
+    </a>
+  </div>
+  <div class="info-box">
+    <div class="footnote">CHRISTIAN UNTERRAINER <span class="highlight">&copy;2019</span></div>
+  </div>
 </footer>
+
 </html>

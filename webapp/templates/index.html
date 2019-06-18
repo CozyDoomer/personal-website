@@ -2,427 +2,469 @@
 <html>
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141674173-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141674173-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-141674173-1');
-    </script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-141674173-1");
+  </script>
 
-    <title>Christian Unterrainer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>Christian Unterrainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
 
-    <!-- HOSTED -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800' rel='stylesheet' type='text/css'>
-    <link href="/static/fonts/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" />
+  <!-- HOSTED -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800"
+    rel="stylesheet" type="text/css" />
+  <link href="/static/fonts/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" />
 
-    <!-- LOCAL -->
-    <link rel="stylesheet" href="/static/style/style.css">
-    <link rel='shortcut icon' href='/static/favicon.ico' type='image/x-icon' />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- LOCAL -->
+  <link rel="stylesheet" href="/static/style/style.css" />
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
-    <!-- HOSTED -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+  <!-- HOSTED -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
 
-    <!-- LOCAL -->
-    <script defer src="/static/scripts/pt.min.js"></script>
-    <script defer src="/static/scripts/index.js"></script>
-    <script async src="/static/scripts/modal.js"></script>
+  <!-- LOCAL -->
+  <script src="/static/scripts/pt.min.js"></script>
+  <script defer src="/static/scripts/index.js"></script>
+  <script async src="/static/scripts/modal.js"></script>
 </head>
 
 <body>
-    <div class="overflow-wrap">
-
-        <!-- HOME -->
-        <div class="modal-wrap flex">
-            <div class="mask"></div>
-            <div class="modal" id="modal">
-                <div class="carousel-wrap">
-                    <div class="window">
-                        <div id="carousel">
-                            <div class="slide"></div>
-                            <div class="slide"></div>
-                            <div class="slide"></div>
-                        </div>
-                        <i class="mdi mdi-chevron-left" id="prev"></i>
-                        <i class="mdi mdi-chevron-right" id="next"></i>
-                    </div>
-
-                </div>
-                <div class="info-box">
-                    <div class="title"></div>
-                    <div class="tag"></div>
-                    <div class="detail"></div>
-                    <a href="#" target="_blank">
-                        <div class="button"><i class="mdi mdi-open-in-new"></i>VIEW</div>
-                    </a>
-                </div>
-                <i class="close mdi mdi-close"></i>
+  <div class="overflow-wrap">
+    <!-- HOME -->
+    <div class="modal-wrap flex">
+      <div class="mask"></div>
+      <div class="modal" id="modal">
+        <div class="carousel-wrap">
+          <div class="window">
+            <div id="carousel">
+              <div class="slide"></div>
+              <div class="slide"></div>
+              <div class="slide"></div>
             </div>
+            <i class="mdi mdi-chevron-left" id="prev"></i>
+            <i class="mdi mdi-chevron-right" id="next"></i>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="title"></div>
+          <div class="tag"></div>
+          <div class="detail"></div>
+          <a href="#" target="_blank">
+            <div class="button"><i class="mdi mdi-open-in-new"></i>VIEW</div>
+          </a>
+        </div>
+        <i class="close mdi mdi-close"></i>
+      </div>
+    </div>
+
+    <section id="home" class="flex height-fix">
+      <div id="pt" class="canvas"></div>
+      <div class="flex">
+        <div class="text">
+          Hello, I'm <span class="highlight">Christian Unterrainer</span>.
+          <br /> I'm a Software Developer and aspiring Data Scientist.
         </div>
 
-        <section id="home" class="flex height-fix">
-            <div id="pt" class="canvas"></div>
-            <div class="flex">
+        <div class="button page-link" dest="about">
+          View my work <i class="mdi mdi-arrow-right"></i>
+        </div>
 
-                <div class="text">
-                    Hello, I'm <span class="highlight">Christian Unterrainer</span>.
-                    <br> I'm a Software Developer and aspiring Data Scientist.
-                </div>
+        <nav class="flex">
+          <div class="link-wrap">
+            <div class="active page-link" dest="home">home</div>
+            <div class="page-link" dest="about">about</div>
+            <div class="page-link" dest="portfolio">portfolio</div>
+            <div class="page-link" dest="demos">demos</div>
+            <div class="page-link" dest="contact">contact</div>
+          </div>
+          <i class="mdi mdi-menu"></i>
+        </nav>
+      </div>
+    </section>
 
-                <div class="button page-link" dest="about">View my work <i class="mdi mdi-arrow-right"></i></div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container flex">
+        <div class="header waypoint" data-animation="slide-in-left">
+          ABOUT
+        </div>
+        <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
 
-                <nav class="flex">
-                    <div class="link-wrap">
-                        <div class="active page-link" dest="home">home</div>
-                        <div class="page-link" dest="about">about</div>
-                        <div class="page-link" dest="portfolio">portfolio</div>
-                        <div class="page-link" dest="demos">demos</div>
-                        <div class="page-link" dest="contact">contact</div>
-                    </div>
-                    <i class="mdi mdi-menu"></i>
-                </nav>
+        <div class="skills-wrapper flex row-gt-sm">
+          <div class="flex flex-50-gt-sm waypoint" data-animation="slide-in-left">
+            <img src="/static/img/me.webp" class="me" />
+            <!-- <div><img class="up-arrow" src="img/up-arrow.png"></div> -->
+            <div class="label bold">Who's this guy?</div>
+            <div>
+              <p>
+                I started out as software developer graduating from HTL Wiener Neustadt, mostly working
+                with C# and
+                Python.
+              </p>
+              <p>
+                Over time I have gained experience in web development, SCRUM and best practices (eg.
+                git, virtualenv,
+                unit-testing, docker).
+              </p>
+
+              <p>
+                In the last year I spent a lot of time working on machine-learning tasks on
+                <a class="highlight" href="https://www.kaggle.com/dollofcuty" target="_blank">Kaggle</a>
+                for structured
+                and unstructured data.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-50-gt-sm waypoint bars-wrap" data-animation="slide-in-right">
+            <div class="bar flex">
+              <div class="bar fill" style="width:65%">
+                <div class="tag bold flex">Machine Learning</div>
+              </div>
+              <span>60%</span>
             </div>
 
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="container flex">
-
-                <div class="header waypoint" data-animation="slide-in-left">ABOUT</div>
-                <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
-
-                <div class="skills-wrapper flex row-gt-sm">
-                    <div class="flex flex-50-gt-sm waypoint" data-animation="slide-in-left">
-                        <img src="/static/img/me.webp" class="me">
-                        <!-- <div><img class="up-arrow" src="img/up-arrow.png"></div> -->
-                        <div class="label bold">Who's this guy?</div>
-                        <div>
-                            <p>I started out as software developer graduating from HTL Wiener Neustadt, mostly working with C# and Python.</p>
-                            <p>Over time I have gained experience in web development, SCRUM and best practices (eg. git, virtualenv, unit-testing, docker).</p>
-
-                            <p>In the last year I spent a lot of time working on machine-learning tasks on
-                                <a class="highlight" href="https://www.kaggle.com/dollofcuty" target="_blank">Kaggle</a> for structured and unstructured data.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-50-gt-sm waypoint bars-wrap" data-animation="slide-in-right">
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:65%">
-                                <div class="tag bold flex">Machine Learning</div>
-                            </div>
-                            <span>60%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:75%">
-                                <div class="tag bold flex">Computer Vision</div>
-                            </div>
-                            <span>70%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:85%">
-                                <div class="tag bold flex">Python</div>
-                            </div>
-                            <span>80%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:75%">
-                                <div class="tag bold flex">C#</div>
-                            </div>
-                            <span>70%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:55%">
-                                <div class="tag bold flex">Java</div>
-                            </div>
-                            <span>50%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:65%">
-                                <div class="tag bold flex">SCRUM</div>
-                            </div>
-                            <span>60%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:55%">
-                                <div class="tag bold flex">Web Dev</div>
-                            </div>
-                            <span>50%</span>
-                        </div>
-
-                        <div class="bar flex">
-                            <div class="bar fill" style="width:65%">
-                                <div class="tag bold flex">Dev Ops</div>
-                            </div>
-                            <span>60%</span>
-                        </div>
-                        <br>
-                        <p>I'm currently looking for a job in the Machine Learning field.</p>
-                        <p>You can download my CV <a class="highlight" href="{{ url_for('cv.download') }}">here</a>.</p>
-                        <p>If you are interested in working together <span class="page-link highlight" dest="contact">send me a message.</span></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PORTFOLIO -->
-        <section class="flex" id="portfolio">
-
-            <div class="header waypoint" data-animation="slide-in-right">PROJECTS</div>
-            <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".3s"></div>
-
-            <div class="filter-wrap waypoint" data-animation="fade-in">
-                <div class="flex row">
-                    <div class="filter" data-filter="all">ALL</div>
-                    <div class="filter" data-filter=".compvision">COMPUTERVISION</div>
-                    <div class="filter" data-filter=".ml">MACHINELEARNING</div>
-                    <div class="filter" data-filter=".webdev">WEBDEVELOPMENT</div>
-                </div>
-                <div class="float-bar">
-                    <div class="flex row">
-                        <div class="filter" data-filter="all">ALL</div>
-                        <div class="filter" data-filter=".compvision">COMPUTERVISION</div>
-                        <div class="filter" data-filter=".ml">MACHINELEARNING</div>
-                        <div class="filter" data-filter=".webdev">WEBDEVELOPMENT</div>
-                    </div>
-                </div>
+            <div class="bar flex">
+              <div class="bar fill" style="width:75%">
+                <div class="tag bold flex">Computer Vision</div>
+              </div>
+              <span>70%</span>
             </div>
 
-            <div id="gallery" class="container flex row wrap waypoint">
-                <div class="mix webdev" data-my-order="1">
-                    <div>
-                        <div class="card"></div>
-                        <div class="text">
-                            <div class="bold">Atimis GEM7</div>
-                            <span class="highlight">Angular + Node.js</span>
-                        </div>
-                        <div class="button" id="gem7">LEARN MORE</div>
-                    </div>
-                </div>
-
-                <div class="mix compvision" data-my-order="1">
-                    <div>
-                        <div class="card"></div>
-                        <div class="text">
-                            <div class="bold">Human Protein Atlas</div>
-                            <span class="highlight">Kaggle Competition with Python</span>
-                        </div>
-                        <div class="button" id="hpa">LEARN MORE</div>
-                    </div>
-                </div>
-
-                <div class="mix ml" data-my-order="1">
-                    <div>
-                        <div class="card"></div>
-                        <div class="text">
-                            <div class="bold">House Prices Regression</div>
-                            <span class="highlight">Kaggle Competition with Python</span>
-                        </div>
-                        <div class="button" id="houseprices">LEARN MORE</div>
-                    </div>
-                </div>
-
-                <div class="mix webdev" data-my-order="1">
-                    <div>
-                        <div class="card"></div>
-                        <div class="text">
-                            <div class="bold">This Website</div>
-                            <span class="highlight">Javascript/CSS + Flask</span>
-                        </div>
-                        <div class="button" id="thissite">LEARN MORE</div>
-                    </div>
-                </div>
-
-                <div class="mix compvision" data-my-order="1">
-                    <div>
-                        <div class="card"></div>
-                        <div class="text">
-                            <div class="bold">Style Transfer</div>
-                            <span class="highlight">Tensorflow with VGG network</span>
-                        </div>
-                        <div class="button" id="styletrans">LEARN MORE</div>
-                    </div>
-                </div>
-
-
-                <div class="mix ml" data-my-order="1">
-                    <div>
-                        <div class="card"></div>
-                        <div class="text">
-                            <div class="bold">Predict Future Sales</div>
-                            <span class="highlight">Kaggle Competition with Python</span>
-                        </div>
-                        <div class="button" id="predictsales">LEARN MORE</div>
-                    </div>
-                </div>
+            <div class="bar flex">
+              <div class="bar fill" style="width:85%">
+                <div class="tag bold flex">Python</div>
+              </div>
+              <span>80%</span>
             </div>
-        </section>
 
-        <!-- DEMOS -->
-        <section id="demos">
-            <div class="container flex">
+            <div class="bar flex">
+              <div class="bar fill" style="width:75%">
+                <div class="tag bold flex">C#</div>
+              </div>
+              <span>70%</span>
+            </div>
 
-                <div class="header waypoint" data-animation="slide-in-left">DEMOS</div>
-                <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+            <div class="bar flex">
+              <div class="bar fill" style="width:55%">
+                <div class="tag bold flex">Java</div>
+              </div>
+              <span>50%</span>
+            </div>
 
-                <div class="flex row wrap shift-right">
-                    <div class="flex row-gt-sm">
-                        <a href="{{ url_for('image_classifier.show') }}">
-                            <div class="demo-wrap waypoint" data-animation="fade-in" data-delay=".4s">
-                                <div class="fade-wrap">
-                                    <div class="thumb" id="thumb-1"></div>
-                                    <div class="label bold">Image Classification</div>
-                                    <div class="model">{{ name }} and Binary Cross Entropy Loss</div>
-                                    <div class="bar"></div>
-                                    <div class="text">
-                                        <a class="highlight" href="{{ link }}" target="_blank">{{  name  }}</a> model, trained on images from the
-                                        <a class="highlight" href="http://image-net.org/challenges/LSVRC/2017" target="_blank">ILSVR Challenge</a> with 1000 categories.
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{{ url_for('object_detection.show') }}">
-                            <div class="demo-wrap waypoint shift-left" data-animation="fade-in" data-delay=".6s">
-                                <div class="fade-wrap">
-                                    <div class="thumb" id="thumb-2"></div>
-                                    <div class="label bold">Object Detection</div>
-                                    <div class="model"> RetinaNet and Focal Loss</div>
-                                    <div class="bar"></div>
-                                    <div class="text">
-                                        <a class="highlight" href="https://arxiv.org/pdf/1708.02002.pdf" target="_blank">RetinaNet</a> model, trained on images from the
-                                        <a class="highlight" href="http://image-net.org/challenges/LSVRC/2017" target="_blank">ILSVR Challenge</a> with 200 object categories (needs to be retrained on a dataset with more categories to get better).
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+            <div class="bar flex">
+              <div class="bar fill" style="width:65%">
+                <div class="tag bold flex">SCRUM</div>
+              </div>
+              <span>60%</span>
+            </div>
+
+            <div class="bar flex">
+              <div class="bar fill" style="width:55%">
+                <div class="tag bold flex">Web Dev</div>
+              </div>
+              <span>50%</span>
+            </div>
+
+            <div class="bar flex">
+              <div class="bar fill" style="width:65%">
+                <div class="tag bold flex">Dev Ops</div>
+              </div>
+              <span>60%</span>
+            </div>
+            <br />
+            <p>
+              I'm currently looking for a job in the Machine Learning field.
+            </p>
+            <p>
+              You can download my CV
+              <a class="highlight" href="{{ url_for('cv.download') }}">here</a>.
+            </p>
+            <p>
+              If you are interested in working together
+              <span class="page-link highlight" dest="contact">send me a message.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="flex" id="portfolio">
+      <div class="header waypoint" data-animation="slide-in-right">
+        PROJECTS
+      </div>
+      <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".3s"></div>
+
+      <div class="filter-wrap waypoint" data-animation="fade-in">
+        <div class="flex row">
+          <div class="filter" data-filter="all">ALL</div>
+          <div class="filter" data-filter=".compvision">COMPUTERVISION</div>
+          <div class="filter" data-filter=".ml">MACHINELEARNING</div>
+          <div class="filter" data-filter=".webdev">WEBDEVELOPMENT</div>
+        </div>
+        <div class="float-bar">
+          <div class="flex row">
+            <div class="filter" data-filter="all">ALL</div>
+            <div class="filter" data-filter=".compvision">COMPUTERVISION</div>
+            <div class="filter" data-filter=".ml">MACHINELEARNING</div>
+            <div class="filter" data-filter=".webdev">WEBDEVELOPMENT</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gallery" class="container flex row wrap waypoint">
+        <div class="mix webdev" data-my-order="1">
+          <div>
+            <div class="card"></div>
+            <div class="text">
+              <div class="bold">Atimis GEM7</div>
+              <span class="highlight">Angular + Node.js</span>
+            </div>
+            <div class="button" id="gem7">LEARN MORE</div>
+          </div>
+        </div>
+
+        <div class="mix compvision" data-my-order="1">
+          <div>
+            <div class="card"></div>
+            <div class="text">
+              <div class="bold">Human Protein Atlas</div>
+              <span class="highlight">Kaggle Competition with Python</span>
+            </div>
+            <div class="button" id="hpa">LEARN MORE</div>
+          </div>
+        </div>
+
+        <div class="mix ml" data-my-order="1">
+          <div>
+            <div class="card"></div>
+            <div class="text">
+              <div class="bold">House Prices Regression</div>
+              <span class="highlight">Kaggle Competition with Python</span>
+            </div>
+            <div class="button" id="houseprices">LEARN MORE</div>
+          </div>
+        </div>
+
+        <div class="mix webdev" data-my-order="1">
+          <div>
+            <div class="card"></div>
+            <div class="text">
+              <div class="bold">This Website</div>
+              <span class="highlight">Javascript/CSS + Flask</span>
+            </div>
+            <div class="button" id="thissite">LEARN MORE</div>
+          </div>
+        </div>
+
+        <div class="mix compvision" data-my-order="1">
+          <div>
+            <div class="card"></div>
+            <div class="text">
+              <div class="bold">Style Transfer</div>
+              <span class="highlight">Tensorflow with VGG network</span>
+            </div>
+            <div class="button" id="styletrans">LEARN MORE</div>
+          </div>
+        </div>
+
+        <div class="mix ml" data-my-order="1">
+          <div>
+            <div class="card"></div>
+            <div class="text">
+              <div class="bold">Predict Future Sales</div>
+              <span class="highlight">Kaggle Competition with Python</span>
+            </div>
+            <div class="button" id="predictsales">LEARN MORE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMOS -->
+    <section id="demos">
+      <div class="container flex">
+        <div class="header waypoint" data-animation="slide-in-left">
+          DEMOS
+        </div>
+        <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
+
+        <div class="flex row wrap shift-right">
+          <div class="flex row-gt-sm">
+            <a href="{{ url_for('image_classifier.show') }}">
+              <div class="demo-wrap waypoint" data-animation="fade-in" data-delay=".4s">
+                <div class="fade-wrap">
+                  <div class="thumb" id="thumb-1"></div>
+                  <div class="label bold">Image Classification</div>
+                  <div class="model">
+                    {{ name }} and Binary Cross Entropy Loss
+                  </div>
+                  <div class="bar"></div>
+                  <div class="text">
+                    <a class="highlight" href="{{ link }}" target="_blank">{{ name }}</a> model,
+                    trained on images from
+                    the
+                    <a class="highlight" href="http://image-net.org/challenges/LSVRC/2017" target="_blank">ILSVR
+                      Challenge</a> with 1000 categories.
+                  </div>
                 </div>
+              </div>
+            </a>
+            <a href="{{ url_for('object_detection.show') }}">
+              <div class="demo-wrap waypoint shift-left" data-animation="fade-in" data-delay=".6s">
+                <div class="fade-wrap">
+                  <div class="thumb" id="thumb-2"></div>
+                  <div class="label bold">Object Detection</div>
+                  <div class="model">RetinaNet and Focal Loss</div>
+                  <div class="bar"></div>
+                  <div class="text">
+                    <a class="highlight" href="https://arxiv.org/pdf/1708.02002.pdf" target="_blank">RetinaNet</a>
+                    model, trained on images from the
+                    <a class="highlight" href="http://image-net.org/challenges/LSVRC/2017" target="_blank">ILSVR
+                      Challenge</a> with 200 object categories (needs to be retrained on a dataset
+                    with more categories
+                    to get better).
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
+        <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
+      </svg>
+      <div class="container flex">
+        <div class="header waypoint" data-animation="slide-in-left">
+          CONTACT
+        </div>
+        <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".25s"></div>
+        <div class="highlight waypoint" data-animation="slide-in-right" data-delay=".5s">
+          Have a question or want to work together?
+        </div>
+
+        <form class="waypoint" data-animation="pop-in" data-delay=".5s" enctype="multipart/form-data" method="POST"
+          name="sendmail">
+          <input placeholder="Name" type="text" name="name" required />
+          <input placeholder="Enter email" type="email" name="email" required />
+          <textarea placeholder="Your Message" type="text" name="message"></textarea>
+          <div id="success">
+            <div>
+              Your message was sent successfully. Thanks!<span id="close" class="mdi mdi-close"></span>
             </div>
-        </section>
+          </div>
+          <input class="button" type="submit" id="submit" value="SUBMIT" />
+        </form>
+      </div>
+    </section>
 
-        <!-- CONTACT -->
-        <section id="contact">
-            <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-light">
-                <path d="M0 0 L50 100 L100 0 Z" fill="white" stroke="white"></path>
-            </svg>
-            <div class="container flex">
-                <div class="header waypoint" data-animation="slide-in-left">CONTACT</div>
-                <div class="header-bar waypoint" data-animation="slide-in-right" data-delay=".25s"></div>
-                <div class="highlight waypoint" data-animation="slide-in-right" data-delay=".5s">Have a question or want to work together?</div>
+    <footer>
+      <i class="mdi mdi-chevron-double-up page-link" dest="home"></i>
 
-                <form class="waypoint" data-animation="pop-in" data-delay=".5s" enctype="multipart/form-data" method="POST" name="sendmail">
-                    <input placeholder="Name" type="text" name="name" required>
-                    <input placeholder="Enter email" type="email" name="email" required>
-                    <textarea placeholder="Your Message" type="text" name="message"></textarea>
-                    <div id="success">
-                        <div>Your message was sent successfully. Thanks!<span id="close" class="mdi mdi-close"></span></div>
-                    </div>
-                    <input class="button" type="submit" id="submit" value=SUBMIT>
-                </form>
-            </div>
-        </section>
+      <div class="icon-wrap flex row">
+        <a href="https://github.com/DollofCuty" target="_blank">
+          <div class="flex icon" id="icon-2">
+            <i class="fab fa-github fb"></i>
+          </div>
+        </a>
+        <a href="https://www.kaggle.com/dollofcuty" target="_blank">
+          <div class="flex icon" id="icon-3">
+            <i class="fab fa-kaggle fb"></i>
+          </div>
+        </a>
+        <a href="https://angel.co/christian-unterrainer" target="_blank">
+          <div class="flex icon" id="icon-4">
+            <i class="fab fa-angellist fb"></i>
+          </div>
+        </a>
+        <a href="https://www.xing.com/profile/Christian_Unterrainer3" target="_blank">
+          <div class="flex icon" id="icon-5">
+            <i class="fab fa-xing fb"></i>
+          </div>
+        </a>
+      </div>
+      <div class="info-box">
+        <div class="footnote">
+          CHRISTIAN UNTERRAINER <span class="highlight">&copy;2019</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-        <footer>
-            <i class="mdi mdi-chevron-double-up page-link" dest="home"></i>
-
-            <div class="icon-wrap flex row">
-                <a href="https://github.com/DollofCuty">
-                    <div class="flex icon" id="icon-2">
-                        <i class="fab fa-github fb"></i>
-                    </div>
-                </a>
-                <a href="https://www.kaggle.com/dollofcuty">
-                    <div class="flex icon" id="icon-3">
-                        <i class="fab fa-kaggle fb"></i>
-                    </div>
-                </a>
-                <a href="https://angel.co/christian-unterrainer">
-                    <div class="flex icon" id="icon-4">
-                        <i class="fab fa-angellist fb"></i>
-                    </div>
-                </a>
-                <a href="https://www.xing.com/profile/Christian_Unterrainer3">
-                    <div class="flex icon" id="icon-5">
-                        <i class="fab fa-xing fb"></i>
-                    </div>
-                </a>
-
-            </div>
-            <div class="info-box">
-                <div class="footnote">CHRISTIAN UNTERRAINER <span class="highlight">&copy;2019</span></div>
-            </div>
-        </footer>
-
-    </div>
-
-    <div id="preload">
-        <img src="/static/img/me.webp" />
-        <img src="/static/img/filler.webp" />
-        <img src="/static/img/thumb-1.webp" />
-        <img src="/static/img/thumb-2.webp" />
-        <img src="/static/img/thumb-3.webp" />
-        <img src="/static/img/thumb-4.webp" />
-        <img src="/static/img/thumb-5.webp" />
-        <img src="/static/img/thumb-6.webp" />
-        <img src="/static/img/demo-1.webp" />
-        <img src="/static/img/demo-2.webp" />
-        <img src="/static/img/slides/hpa-0.webp" />
-        <img src="/static/img/slides/hpa-1.webp" />
-        <img src="/static/img/slides/hpa-2.webp" />
-        <img src="/static/img/slides/styletrans-0.webp" />
-        <img src="/static/img/slides/styletrans-1.webp" />
-        <img src="/static/img/slides/styletrans-2.webp" />
-        <img src="/static/img/slides/gem7-0.webp" />
-        <img src="/static/img/slides/gem7-1.webp" />
-        <img src="/static/img/slides/gem7-2.webp" />
-        <img src="/static/img/slides/houseprices-0.webp" />
-        <img src="/static/img/slides/houseprices-1.webp" />
-        <img src="/static/img/slides/houseprices-2.webp" />
-        <img src="/static/img/slides/predictsales-0.webp" />
-        <img src="/static/img/slides/predictsales-1.webp" />
-        <img src="/static/img/slides/predictsales-2.webp" />
-        <img src="/static/img/slides/thissite-0.webp" />
-        <img src="/static/img/slides/thissite-1.webp" />
-        <img src="/static/img/slides/thissite-2.webp" />
-    </div>
+  <div id="preload">
+    <img src="/static/img/me.webp" />
+    <img src="/static/img/filler.webp" />
+    <img src="/static/img/thumb-1.webp" />
+    <img src="/static/img/thumb-2.webp" />
+    <img src="/static/img/thumb-3.webp" />
+    <img src="/static/img/thumb-4.webp" />
+    <img src="/static/img/thumb-5.webp" />
+    <img src="/static/img/thumb-6.webp" />
+    <img src="/static/img/demo-1.webp" />
+    <img src="/static/img/demo-2.webp" />
+    <img src="/static/img/slides/hpa-0.webp" />
+    <img src="/static/img/slides/hpa-1.webp" />
+    <img src="/static/img/slides/hpa-2.webp" />
+    <img src="/static/img/slides/styletrans-0.webp" />
+    <img src="/static/img/slides/styletrans-1.webp" />
+    <img src="/static/img/slides/styletrans-2.webp" />
+    <img src="/static/img/slides/gem7-0.webp" />
+    <img src="/static/img/slides/gem7-1.webp" />
+    <img src="/static/img/slides/gem7-2.webp" />
+    <img src="/static/img/slides/houseprices-0.webp" />
+    <img src="/static/img/slides/houseprices-1.webp" />
+    <img src="/static/img/slides/houseprices-2.webp" />
+    <img src="/static/img/slides/predictsales-0.webp" />
+    <img src="/static/img/slides/predictsales-1.webp" />
+    <img src="/static/img/slides/predictsales-2.webp" />
+    <img src="/static/img/slides/thissite-0.webp" />
+    <img src="/static/img/slides/thissite-1.webp" />
+    <img src="/static/img/slides/thissite-2.webp" />
+  </div>
 </body>
 
 </html>
 
 <script>
-    $('form').submit(function(e) {
-        e.preventDefault(); // block the traditional submission of the form.
-        var url = "{{ url_for('send_message') }}"; // send the form data here.
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: $('form').serialize()
-        }).done(function(data) {
-            if (data['status'] === 'success') {
-                $('#success').addClass('expand');
-                $('#contact-form').find("input[type=text], input[type=email], textarea").val("");
-            }
-        });
+  $("form").submit(function (e) {
+    e.preventDefault(); // block the traditional submission of the form.
+    var url = "{{ url_for('send_message') }}"; // send the form data here.
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: $("form").serialize()
+    }).done(function (data) {
+      if (data["status"] === "success") {
+        $("#success").addClass("expand");
+        $("#contact-form")
+          .find("input[type=text], input[type=email], textarea")
+          .val("");
+      }
     });
+  });
 
-    $('#close').click(function() {
-        $('#success').removeClass('expand');
-    })
+  $("#close").click(function () {
+    $("#success").removeClass("expand");
+  });
 </script>
 
 <script src="/static/scripts/canvas.js"></script>

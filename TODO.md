@@ -1,3 +1,3 @@
 - finish and include object detection model
 
-- write a better frontend 
+- write a better frontend
