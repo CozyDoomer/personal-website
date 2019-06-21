@@ -40,8 +40,9 @@ def show():
     return render_template("image-classifier.html", mail=current_app.config['MAIL_USERNAME'], name=model_name, link=model_link)
 
 
-@image_classifier.route("/image-classifier/<filename>")
+@image_classifier.route("/image-classifier/<filename>", methods=['GET'])
 def analyze(filename):
+    print(filename)
     model_name = get_name()
     model_link = get_link(model_name)
     print(f'model name: {model_name}')
@@ -80,10 +81,14 @@ def analyze(filename):
     class_keys = [class_id_to_key[i] for i in idxs]
     class_names = [', '.join(
         [str(y) for y in key_to_classname[x].split(",", 2)[:2]]) for x in class_keys]
-    percent = (preds_sorted[:3].numpy() * 100).round(decimals=2)
+    percent = [round(elem, 2)
+               for elem in (preds_sorted[:3].numpy() * 100).tolist()]
 
     print(f'predicted classes: {class_names}')
     print(f'confidence: {percent}')
 
-    return render_template("image-classifier.html", filename=filename, prediction=class_names, confidence=percent,
-                           name=model_name, link=model_link, mail=current_app.config['MAIL_USERNAME'])
+    preds = []
+    for i in range(len(class_names)):
+        preds.append({'class': class_names[i], 'percent': percent[i]})
+
+    return json.dumps(preds)

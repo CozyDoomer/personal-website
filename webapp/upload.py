@@ -1,7 +1,7 @@
 #!/venv/bin python
 
 import os
-from flask import Flask, flash, request, redirect, url_for, Blueprint, current_app, render_template, send_from_directory
+from flask import Flask, flash, request, redirect, url_for, Blueprint, current_app, render_template, send_from_directory, jsonify
 
 from werkzeug.utils import secure_filename
 from PIL import Image, ExifTags
@@ -60,6 +60,7 @@ def preprocess_image(filepath, min_size=299):
 @upload.route('/upload/<reason>', methods=['POST', 'GET'])
 def upload_file(reason):
     if request.method == 'POST':
+        print(request.files['file'])
         # check if the post request has the file part
         if 'file' not in request.files:
             return redirect(request.url)
@@ -79,13 +80,6 @@ def upload_file(reason):
             if reason == 'object-detection':
                 size = 500
             preprocess_image(filepath, min_size=size)
-            return render_template(f'{reason}.html', filename=filename, mail=current_app.config['MAIL_USERNAME'])
+            return jsonify({'img_path': current_app.config['UPLOAD_FOLDER'] + '/' + filename})
 
-    return render_template(f'{reason}.html', error='error', mail=current_app.config['MAIL_USERNAME'])
-
-
-@upload.route('/upload/<reason>/<filename>', methods=['GET'])
-def send_file(reason, filename):
-    if request.method == 'GET':
-        return send_from_directory(current_app.config['UPLOAD_FOLDER'], filename)
-    return render_template(f'{reason}.html', error='error', mail=current_app.config['MAIL_USERNAME'])
+    return jsonify({'status': 'error'})

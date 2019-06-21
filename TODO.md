@@ -1,3 +1,3 @@
-- image input with ajax, don't reload the whole site
+- don't reload the object detection site on every action
 
-- more mobile layout fixes (skill bars, project filter)
+- more mobile layout fixes (skill bars, project filter, too small in classifier/object-detection)
