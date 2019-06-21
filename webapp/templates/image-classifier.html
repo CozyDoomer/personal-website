@@ -15,6 +15,8 @@
   </script>
 
   <title>Image Classifier</title>
+  <meta name="description"
+    content="InceptionResNetv2 model, trained on images from the ILSVR Challenge with 1000 categories." />
 
   <!-- HOSTED -->
   <link
@@ -46,6 +48,10 @@
       <div id="desc">
         <p>Choose an image to run inference of a
           <a href="{{ link }}">{{  name  }}</a> model trained on <a href="http://www.image-net.org/">image-net</a>!</p>
+      </div>
+
+      <div id="error" class="hide highlight">
+        <p>There was an error in the format of the image (only .png, .jpg, .gif are allowed)</p>
       </div>
 
       <form method="POST" id="file-form" enctype=multipart/form-data> <label for="file-upload"
@@ -130,6 +136,9 @@
         $("#estimate").removeClass("hide");
         $("#analyzeButton").removeClass("hide");
         analyzeLink = "/image-classifier/" + d.img_path.substring(d.img_path.lastIndexOf("/") + 1, d.img_path.length)
+      },
+      error: function (d) {
+        $("#error").removeClass("hide");
       }
     });
   }

@@ -2,7 +2,7 @@
 
 import os
 import sys
-from flask import Flask, Blueprint, current_app, render_template
+from flask import Flask, Blueprint, current_app, render_template, abort
 import numpy as np
 
 from fastai.vision import *
@@ -49,7 +49,7 @@ def analyze(filename):
 
     if not os.path.isfile(os.path.join(current_app.config['UPLOAD_FOLDER'], filename)):
         print('error, filename not found in static/uploads/<filename>')
-        return render_template("image-classifier.html", filename=filename, name=model_name, link=model_link, mail=current_app.config['MAIL_USERNAME'])
+        abort(404)
 
     learn = init_learner(model_name)
     print('init model successfully')

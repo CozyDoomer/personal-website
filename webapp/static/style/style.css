@@ -698,8 +698,7 @@ section:nth-of-type(2) .bar .tag {
   background-color: #04c2c9;
   color: #fff;
   height: 100%;
-  width: 150px;
-  width: 70px;
+  width: 80px;
 }
 
 section:nth-of-type(2) .bar.secondary {
@@ -730,7 +729,7 @@ section:nth-of-type(3) .filter-wrap {
 section:nth-of-type(3) .filter {
   font-size: 6pt;
   font-weight: 600;
-  padding: 0 20px;
+  padding: 0 14px;
   cursor: pointer;
   transition: background-color 0.5s;
 }
@@ -1413,7 +1412,7 @@ footer .footnote .highlight {
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 960px) {
   .shift-right {
     margin-right: 0px !important;
   }

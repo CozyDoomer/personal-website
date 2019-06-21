@@ -1,11 +1,12 @@
 #!/venv/bin python
 
-import os
-from flask import Flask, flash, request, redirect, url_for, Blueprint, current_app, render_template, send_from_directory, jsonify
-
-from werkzeug.utils import secure_filename
-from PIL import Image, ExifTags
 import piexif
+import os
+from PIL import Image, ExifTags
+from werkzeug.utils import secure_filename
+from flask import Flask, flash, request, redirect, url_for, Blueprint, abort
+from flask import current_app, render_template, send_from_directory, jsonify
+
 
 upload = Blueprint('upload', __name__)
 
@@ -81,5 +82,5 @@ def upload_file(reason):
                 size = 500
             preprocess_image(filepath, min_size=size)
             return jsonify({'img_path': current_app.config['UPLOAD_FOLDER'] + '/' + filename})
-
-    return jsonify({'status': 'error'})
+        else:
+            abort(415)
