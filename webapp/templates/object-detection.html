@@ -14,9 +14,10 @@
     gtag('config', 'UA-141674173-1');
   </script>
 
-  <title>Object Detection</title>
+  <title>Image Classifier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <meta name="description"
-    content="RetinaNet model with ResNet34 backbone, trained on images from the ILSVR Challenge with 200 object categories." />
+    content="InceptionResNetv2 model, trained on images from the ILSVR Challenge with 1000 categories." />
 
   <!-- HOSTED -->
   <link
@@ -41,82 +42,50 @@
 <body>
   <div class="overflow-wrap dark-bg content">
     <!-- DEMOS -->
-    <div class=" container flex">
+    <div class="container flex">
       <div class="header waypoint" data-animation="slide-in-left">OBJECT DETECTION</div>
       <div class="header-bar waypoint" data-animation="slide-in-left" data-delay=".5s"></div>
 
-      {% if not filename %}
+      <div id="desc">
+        <p>Choose an image to run inference of a
+          <a class="highlight" href="https://arxiv.org/pdf/1708.02002.pdf">RetinaNet</a>
+          model with <a class="highlight" href="{{ link }}">{{  name  }}</a> backbone trained on
+          <a class="highlight" href="http://www.image-net.org/">ImageNet</a>!</p>
+      </div>
 
-      <p class="hide-medium hide-small">Choose an image to run inference of a <a
-          href="https://arxiv.org/pdf/1708.02002.pdf">RetinaNet</a>
-        model with <a href="{{ link }}">{{  name  }}</a> backbone trained on <a
-          href="http://www.image-net.org/">image-net</a>!</p>
-      <p class="hide-large">Choose an image to run the model!</p>
+      <div id="error" class="hide highlight">
+        <p>There was an error in the format of the image (only .png, .jpg, .gif are allowed)</p>
+      </div>
 
-      <form action="{{ url_for( 'upload.upload_file', reason='object-detection' ) }}" method="POST"
-        enctype=multipart/form-data> <label for="file-upload" class="custom-file-upload">
+      <form method="POST" id="file-form" enctype=multipart/form-data> <label for="file-upload"
+        class="custom-file-upload">
         UPLOAD IMAGE
         </label>
-        <input id="file-upload" type=file name=file onchange="form.submit()">
+        <input id="file-upload" type=file name=file onchange="submitImage()">
       </form>
 
-      {% else %}
-      <!-- if filename-->
+      <h2 id="results" class="hide">Results</h2>
 
-      {% if prediction %}
+      <p id="estimate" class="hide"><em>This will take 5-10 seconds!</em></p>
 
-      <p><em>Results</em></p>
-
-      {% else %}
-
-      <p><em>This will take 5-10 seconds!</em></p>
-
-      {% endif %}
-
-      <div class="hide-small">
-        <img src="{{ url_for('upload.send_file', reason='object-detection', filename=filename) }}" class="image"
-          style="max-height:400px">
+      <div id="showImg">
+        <img id="image" src="" style="max-height:400px">
       </div>
 
-      <div class="hide-medium hide-large">
-        <img src="{{ url_for('upload.send_file', reason='object-detection', filename=filename) }}" class="image"
-          style="max-height:300px">
-      </div>
-
-      {% endif %}
-      {% if prediction %}
-
-      <div class="padding-16 hide-small">
-        <a href="{{ url_for('object_detection.show', filename=filename) }}"
+      <div id="retry" class="padding-16 hide">
+        <a href="{{ url_for('image_classifier.show') }}"
           class="button padding-large black xlarge wide animate-opacity">TRY ANOTHER</a>
       </div>
 
-      <div class="padding-small hide-medium hide-large">
-        <a href="{{ url_for('object_detection.show', filename=filename) }}"
-          class="button padding-medium black small wide animate-opacity" ">TRY ANOTHER</a>
+      <div id="analyzeButton" class="padding-16 hide">
+        <a id="analyzeLink" class="button padding-large black xlarge wide animate-opacity">ANALYZE</a>
       </div>
-
-      {% elif filename %}
-
-      <div class=" padding-16 hide-small">
-          <a href="{{ url_for('object_detection.analyze', filename=filename) }}"
-            class="button padding-large black xlarge wide animate-opacity"
-            onclick="$(this).closest('div').remove();">ANALYZE</a>
-      </div>
-
-      <div class="padding-small hide-medium hide-large">
-        <a href="{{ url_for('object_detection.analyze', filename=filename) }}"
-          class="button padding-medium black small wide animate-opacity"
-          onclick="$(this).closest('div').remove();">ANALYZE</a>
-      </div>
-
-      {% endif %}
     </div>
   </div>
 </body>
 <!-- Footer -->
 <footer>
-  <a class="mdi mdi-chevron-double-left page-link" href="{{ url_for('home') }}"></a>
+  <a class=" mdi mdi-chevron-double-left page-link" href="{{ url_for('home') }}"></a>
 
   <div class="icon-wrap flex row">
     <a href="https://github.com/DollofCuty" target="_blank">
@@ -146,3 +115,47 @@
 </footer>
 
 </html>
+
+<script>
+
+  function submitImage() {
+    var form_data = new FormData($('#file-form')[0]);
+    var url = "{{ url_for('upload.upload_file', reason='object-detection') }}";
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function (d) {
+        $("#image").attr("src", d.img_path);
+        $("#file-form").addClass("hide");
+        $("#desc").addClass("hide");
+        $("#estimate").removeClass("hide");
+        $("#analyzeButton").removeClass("hide");
+        analyzeLink = "/object-detection/" + d.img_path.substring(d.img_path.lastIndexOf("/") + 1, d.img_path.length)
+      },
+      error: function (d) {
+        $("#error").removeClass("hide");
+      }
+    });
+  }
+
+  $('#analyzeLink').click(function (e) {
+    e.preventDefault();
+    $("#analyzeButton").addClass("hide");
+    const url = analyzeLink;
+    fetch(url)
+      .then(response => response.json())
+      .then(result => showResult(result));
+  });
+
+  function showResult(result) {
+    $("#image").attr("src", result.img_path);
+    $('#results').removeClass("hide");
+    $("#retry").removeClass("hide");
+    $("#estimate").addClass("hide");
+  }
+
+</script>

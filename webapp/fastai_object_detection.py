@@ -2,7 +2,7 @@
 
 import os
 import sys
-from flask import Flask, Blueprint, current_app, render_template
+from flask import Flask, Blueprint, current_app, render_template, jsonify
 import numpy as np
 
 from fastai.vision import *
@@ -74,8 +74,8 @@ def analyze(filename):
 
     ext = filename.rfind('.')
     fname_bbox = f'{filename[:ext]}_bbox{filename[ext:]}'
-    img.save(os.path.join(current_app.config['UPLOAD_FOLDER'], fname_bbox))
+    path_bbox = os.path.join(current_app.config['UPLOAD_FOLDER'], fname_bbox)
+    img.save(path_bbox)
     print(f'saved original image with bbox')
 
-    return render_template("object-detection.html",  prediction=True, filename=fname_bbox, name=model_name,
-                           link=model_link, mail=current_app.config['MAIL_USERNAME'])
+    return jsonify({'img_path': path_bbox})

@@ -146,7 +146,7 @@ body {
   font-family: Raleway;
   text-align: center;
   margin: 0;
-  font-size: 8pt;
+  font-size: 11pt;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden
@@ -221,7 +221,7 @@ body {
   border: 2px solid #fff;
   box-sizing: inherit;
   display: inline-block;
-  font-size: 13pt;
+  font-size: 12pt;
   transition: all .5s;
   cursor: pointer
 }
