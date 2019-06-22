@@ -48,12 +48,8 @@
 
       <div id="desc">
         <p>Choose an image to run inference of a
-          <a class="highlight" href="{{ link }}">{{  name  }}</a> model trained on
-          <a class="highlight" href="http://www.image-net.org/">ImageNet</a>!</p>
-      </div>
-
-      <div id="error" class="hide highlight">
-        <p>There was an error in the format of the image (only .png, .jpg, .gif are allowed)</p>
+          <a class="highlight" href="{{ link }}" target="_blank">{{  name  }}</a> model trained on
+          <a class="highlight" href="http://www.image-net.org/" target="_blank">ImageNet</a>!</p>
       </div>
 
       <form method="POST" id="file-form" enctype=multipart/form-data> <label for="file-upload"
@@ -63,16 +59,24 @@
         <input id="file-upload" type=file name=file onchange="submitImage()">
       </form>
 
+      <div id="error" class="hide highlight">
+        <p>There was an error in the format of the image (only .png, .jpg, .gif are allowed)</p>
+      </div>
+
       <h2 id="results" class="hide">Results</h2>
 
       <div id="predictions" class="hide">
         <!--set h3 with prediciton in javascript-->
       </div>
 
-      <p id="estimate" class="hide"><em>This will take 5-10 seconds!</em></p>
+      <p id="estimate" class="hide"><em>This will take about 10 seconds!</em></p>
 
-      <div id="showImg" class="image">
-        <img id="image" src="" style="max-height:300px">
+      <div id="progress" class="progress hide">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div id="showImg" class="image-container">
+        <img id="image" src="" class="image" style="max-height:300px">
 
         <svg id="spinner" class="spinner hide" width="174px" height="174px" viewBox="0 0 66 66">
           <circle class="path" fill="transparent" stroke-width="2" cx="33" cy="33" r="30" stroke="url(#gradient)" />
@@ -139,6 +143,8 @@
   function submitImage() {
     var form_data = new FormData($('#file-form')[0]);
     var url = "{{ url_for('upload.upload_file', reason='image-classifier') }}";
+    $("#progress").removeClass("hide");
+    $("#file-form").addClass("hide");
     $.ajax({
       xhr: function () {
         var xhr = new window.XMLHttpRequest();
@@ -147,10 +153,10 @@
           if (evt.lengthComputable) {
             var percentComplete = evt.loaded / evt.total;
             percentComplete = parseInt(percentComplete * 100);
-            console.log(percentComplete);
+            document.getElementsByClassName("progress-bar")[0].style.width = percentComplete + "%";
 
             if (percentComplete === 100) {
-
+              $("#progress").addClass("hide");
             }
 
           }
@@ -166,14 +172,19 @@
       processData: false,
       success: function (d) {
         $("#image").attr("src", d.img_path);
-        $("#file-form").addClass("hide");
         $("#desc").addClass("hide");
+        $("#progress").addClass("hide");
         $("#estimate").removeClass("hide");
         $("#analyzeButton").removeClass("hide");
         analyzeLink = "/image-classifier/" + d.img_path.substring(d.img_path.lastIndexOf("/") + 1, d.img_path.length)
       },
       error: function (d) {
+        $("#file-form").removeClass("hide");
         $("#error").removeClass("hide");
+
+        setTimeout(function () {
+          $("#error").fadeOut();
+        }, 5000);
       }
     });
   }
@@ -201,8 +212,8 @@
     $('#predictions').removeClass("hide");
     $('#results').removeClass("hide");
     $("#retry").removeClass("hide");
-    $("#spinner").addClass("hide");
     $("#estimate").addClass("hide");
+    $("#spinner").addClass("hide");
   }
 
 </script>

@@ -360,8 +360,15 @@ footer .footnote .highlight {
   stroke-dashoffset: 20;
 }
 
-.image {
+.image-container {
   align-items: flex-start;
+  max-height: 400px;
+  margin-bottom: 15px;
+}
+
+.image {
+  max-width: 95%;
+  height: auto;
 }
 
 @media screen and (min-width:600px) {
@@ -422,4 +429,28 @@ footer .footnote .highlight {
   .footnote {
     margin-top: 10px!important
   }
+  .spinner {
+    top: 175px;
+  }
+}
+
+.progress {
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  width: 95%;
+  max-width: 500px;
+  margin-top: 40px;
+}
+
+.progress-bar {
+  height: 16px;
+  border-radius: 4px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  transition: 0.4s linear;
+  transition-property: width, background-color;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+  background-color: #04c2c9;
+  width: 0%;
 }

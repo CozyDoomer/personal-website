@@ -48,13 +48,9 @@
 
       <div id="desc">
         <p>Choose an image to run inference of a
-          <a class="highlight" href="https://arxiv.org/pdf/1708.02002.pdf">RetinaNet</a>
-          model with <a class="highlight" href="{{ link }}">{{  name  }}</a> backbone trained on
-          <a class="highlight" href="http://www.image-net.org/">ImageNet</a>!</p>
-      </div>
-
-      <div id="error" class="hide highlight">
-        <p>There was an error in the format of the image (only .png, .jpg, .gif are allowed)</p>
+          <a class="highlight" href="https://arxiv.org/pdf/1708.02002.pdf" target="_blank">RetinaNet</a>
+          model with <a class="highlight" href="{{ link }}" target="_blank">{{  name  }}</a> backbone trained on
+          <a class="highlight" href="http://www.image-net.org/" target="_blank">ImageNet</a>!</p>
       </div>
 
       <form method="POST" id="file-form" enctype=multipart/form-data> <label for="file-upload"
@@ -64,12 +60,34 @@
         <input id="file-upload" type=file name=file onchange="submitImage()">
       </form>
 
+      <div id="error" class="hide highlight">
+        <p>There was an error in the format of the image (only .png, .jpg, .gif are allowed)</p>
+      </div>
+
       <h2 id="results" class="hide">Results</h2>
 
-      <p id="estimate" class="hide"><em>This will take 5-10 seconds!</em></p>
+      <p id="estimate" class="hide"><em>This will take about 10 seconds!</em></p>
 
-      <div id="showImg">
-        <img id="image" src="" style="max-height:400px">
+      <div id="progress" class="progress hide">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div id="showImg" class="image-container">
+        <img id="image" src="" class="image" style="max-height:400px">
+
+        <svg id="spinner" class="spinner hide" width="174px" height="174px" viewBox="0 0 66 66">
+          <circle class="path" fill="transparent" stroke-width="2" cx="33" cy="33" r="30" stroke="url(#gradient)" />
+          <linearGradient id="gradient">
+            <stop offset="50%" stop-color="#04c2c9" stop-opacity="1" />
+            <stop offset="65%" stop-color="#04c2c9" stop-opacity=".5" />
+            <stop offset="100%" stop-color="#04c2c9" stop-opacity="0" />
+          </linearGradient>
+          </circle>
+          <svg class="spinner-dot dot" width="5px" height="5px" viewBox="0 0 66 66" x="37" y="1.5">
+            <circle class="path" fill="#04c2c9" cx="33" cy="33" r="30" />
+            </circle>
+          </svg>
+        </svg>
       </div>
 
       <div id="retry" class="padding-16 hide">
@@ -121,6 +139,8 @@
   function submitImage() {
     var form_data = new FormData($('#file-form')[0]);
     var url = "{{ url_for('upload.upload_file', reason='object-detection') }}";
+    $("#progress").removeClass("hide");
+    $("#file-form").addClass("hide");
     $.ajax({
       xhr: function () {
         var xhr = new window.XMLHttpRequest();
@@ -129,12 +149,11 @@
           if (evt.lengthComputable) {
             var percentComplete = evt.loaded / evt.total;
             percentComplete = parseInt(percentComplete * 100);
-            console.log(percentComplete);
+            document.getElementsByClassName("progress-bar")[0].style.width = percentComplete + "%";
 
             if (percentComplete === 100) {
-
+              $("#progress").addClass("hide");
             }
-
           }
         }, false);
 
@@ -155,7 +174,12 @@
         analyzeLink = "/object-detection/" + d.img_path.substring(d.img_path.lastIndexOf("/") + 1, d.img_path.length)
       },
       error: function (d) {
+        $("#file-form").removeClass("hide");
         $("#error").removeClass("hide");
+
+        setTimeout(function () {
+          $("#error").fadeOut();
+        }, 5000);
       }
     });
   }

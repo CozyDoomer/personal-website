@@ -14,7 +14,7 @@ object_detection = Blueprint('object_detection', __name__)
 app = Flask(__name__)
 
 model_links = {
-    'resnet34': 'https://arxiv.org/pdf/1512.03385.pdf',
+    'ResNet34': 'https://arxiv.org/pdf/1512.03385.pdf',
 }
 
 
@@ -31,21 +31,23 @@ def get_link(model_name):
 
 @object_detection.route("/object-detection")
 def show():
-    model_name = 'resnet34'
+    model_name = 'ResNet34'
     model_link = get_link(model_name)
-    return render_template("object-detection.html", mail=current_app.config['MAIL_USERNAME'], name=model_name, link=model_link)
+    return render_template("object-detection.html", mail=current_app.config['MAIL_USERNAME'],
+                           name=model_name, link=model_link)
 
 
 @object_detection.route("/object-detection/<filename>")
 def analyze(filename):
-    model_name = 'resnet34'
+    model_name = 'ResNet34'
     model_link = get_link(model_name)
     image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
     print(f'model name: {model_name}')
 
     if not os.path.isfile(os.path.join(current_app.config['UPLOAD_FOLDER'], filename)):
         print('error, filename not found in static/uploads/<filename>')
-        return render_template("object-detection.html", filename=filename, name=model_name, link=model_link, mail=current_app.config['MAIL_USERNAME'])
+        return render_template("object-detection.html", filename=filename, name=model_name,
+                               link=model_link, mail=current_app.config['MAIL_USERNAME'])
 
     anchors = create_anchors(sizes=[(16, 16), (8, 8), (4, 4)], ratios=[
                              0.5, 1, 2], scales=[0.5, 0.6, 1, 1.25, ])
