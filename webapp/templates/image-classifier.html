@@ -71,9 +71,24 @@
 
       <p id="estimate" class="hide"><em>This will take 5-10 seconds!</em></p>
 
-      <div id="showImg">
+      <div id="showImg" class="image">
         <img id="image" src="" style="max-height:300px">
+
+        <svg id="spinner" class="spinner hide" width="174px" height="174px" viewBox="0 0 66 66">
+          <circle class="path" fill="transparent" stroke-width="2" cx="33" cy="33" r="30" stroke="url(#gradient)" />
+          <linearGradient id="gradient">
+            <stop offset="50%" stop-color="#04c2c9" stop-opacity="1" />
+            <stop offset="65%" stop-color="#04c2c9" stop-opacity=".5" />
+            <stop offset="100%" stop-color="#04c2c9" stop-opacity="0" />
+          </linearGradient>
+          </circle>
+          <svg class="spinner-dot dot" width="5px" height="5px" viewBox="0 0 66 66" x="37" y="1.5">
+            <circle class="path" fill="#04c2c9" cx="33" cy="33" r="30" />
+            </circle>
+          </svg>
+        </svg>
       </div>
+
 
       <div id="retry" class="padding-16 hide">
         <a href="{{ url_for('image_classifier.show') }}"
@@ -125,6 +140,24 @@
     var form_data = new FormData($('#file-form')[0]);
     var url = "{{ url_for('upload.upload_file', reason='image-classifier') }}";
     $.ajax({
+      xhr: function () {
+        var xhr = new window.XMLHttpRequest();
+
+        xhr.upload.addEventListener("progress", function (evt) {
+          if (evt.lengthComputable) {
+            var percentComplete = evt.loaded / evt.total;
+            percentComplete = parseInt(percentComplete * 100);
+            console.log(percentComplete);
+
+            if (percentComplete === 100) {
+
+            }
+
+          }
+        }, false);
+
+        return xhr;
+      },
       type: 'POST',
       url: url,
       data: form_data,
@@ -148,6 +181,7 @@
   $('#analyzeLink').click(function (e) {
     e.preventDefault();
     $("#analyzeButton").addClass("hide");
+    $("#spinner").removeClass("hide");
     const url = analyzeLink;
     fetch(url)
       .then(response => response.json())
@@ -167,6 +201,7 @@
     $('#predictions').removeClass("hide");
     $('#results').removeClass("hide");
     $("#retry").removeClass("hide");
+    $("#spinner").addClass("hide");
     $("#estimate").addClass("hide");
   }
 

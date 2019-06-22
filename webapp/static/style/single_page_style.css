@@ -318,6 +318,52 @@ footer .footnote .highlight {
   display: none!important
 }
 
+.spinner {
+  animation: rotate 1.4s linear infinite;
+  -webkit-animation: rotate 1.4s linear infinite;
+  -moz-animation: rotate 1.4s linear infinite;
+  width: 174px;
+  height: 174px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 250px;
+  margin: auto;
+}
+
+.spinner-dot {
+  width: 274px;
+  height: 274px;
+  position: relative;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.path {
+  stroke-dasharray: 170;
+  stroke-dashoffset: 20;
+}
+
+.image {
+  align-items: flex-start;
+}
+
 @media screen and (min-width:600px) {
   body {
     font-size: 12pt

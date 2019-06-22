@@ -73,7 +73,7 @@
       </div>
 
       <div id="retry" class="padding-16 hide">
-        <a href="{{ url_for('image_classifier.show') }}"
+        <a href="{{ url_for('object_detection.show') }}"
           class="button padding-large black xlarge wide animate-opacity">TRY ANOTHER</a>
       </div>
 
@@ -122,6 +122,24 @@
     var form_data = new FormData($('#file-form')[0]);
     var url = "{{ url_for('upload.upload_file', reason='object-detection') }}";
     $.ajax({
+      xhr: function () {
+        var xhr = new window.XMLHttpRequest();
+
+        xhr.upload.addEventListener("progress", function (evt) {
+          if (evt.lengthComputable) {
+            var percentComplete = evt.loaded / evt.total;
+            percentComplete = parseInt(percentComplete * 100);
+            console.log(percentComplete);
+
+            if (percentComplete === 100) {
+
+            }
+
+          }
+        }, false);
+
+        return xhr;
+      },
       type: 'POST',
       url: url,
       data: form_data,
@@ -145,6 +163,7 @@
   $('#analyzeLink').click(function (e) {
     e.preventDefault();
     $("#analyzeButton").addClass("hide");
+    $("#spinner").removeClass("hide");
     const url = analyzeLink;
     fetch(url)
       .then(response => response.json())
@@ -156,6 +175,7 @@
     $('#results').removeClass("hide");
     $("#retry").removeClass("hide");
     $("#estimate").addClass("hide");
+    $("#spinner").addClass("hide");
   }
 
 </script>
