@@ -179,6 +179,8 @@
       },
       error: function (d) {
         $("#progress").addClass("hide");
+        document.getElementsByClassName("progress-bar")[0].style.width = "0%";
+
         $("#file-form").removeClass("hide");
         $("#error").removeClass("hide");
 
