@@ -168,16 +168,19 @@
         $("#image").attr("src", d.img_path);
         $("#file-form").addClass("hide");
         $("#desc").addClass("hide");
+        $("#error").addClass("hide");
         $("#estimate").removeClass("hide");
         $("#analyzeButton").removeClass("hide");
         analyzeLink = "/object-detection/" + d.img_path.substring(d.img_path.lastIndexOf("/") + 1, d.img_path.length)
       },
       error: function (d) {
+        $("#progress").addClass("hide");
         $("#file-form").removeClass("hide");
         $("#error").removeClass("hide");
 
-        setTimeout(function () {
-          $("#error").fadeOut();
+        document.getElementById("error").style.opacity = "1";
+        $("#error").animate({
+          opacity: 0,
         }, 5000);
       }
     });
