@@ -434,6 +434,10 @@ footer .footnote .highlight {
   }
 }
 
+.sidegap {
+  width: 95%;
+}
+
 .progress {
   padding: 4px;
   background: rgba(0, 0, 0, 0.25);

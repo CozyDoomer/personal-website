@@ -55,7 +55,7 @@ def analyze(filename):
     print('init model successfully')
 
     _, _, preds = learn.predict(open_image(os.path.join(
-        current_app.config['UPLOAD_FOLDER'], filename)))
+        current_app.config['UPLOAD_FOLDER'], filename)).resize(299))
     print('prediction done')
 
     # Load Imagenet Synsets

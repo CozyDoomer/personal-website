@@ -65,7 +65,7 @@
 
       <h2 id="results" class="hide">Results</h2>
 
-      <div id="predictions" class="hide">
+      <div id="predictions" class="hide sidegap">
         <!--set h3 with prediciton in javascript-->
       </div>
 
@@ -154,11 +154,6 @@
             var percentComplete = evt.loaded / evt.total;
             percentComplete = parseInt(percentComplete * 100);
             document.getElementsByClassName("progress-bar")[0].style.width = percentComplete + "%";
-
-            if (percentComplete === 100) {
-              $("#progress").addClass("hide");
-            }
-
           }
         }, false);
 
@@ -171,6 +166,9 @@
       cache: false,
       processData: false,
       success: function (d) {
+        $("#progress").addClass("hide");
+        document.getElementsByClassName("progress-bar")[0].style.width = "0%";
+
         $("#image").attr("src", d.img_path);
         $("#desc").addClass("hide");
         $("#progress").addClass("hide");

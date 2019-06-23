@@ -14,7 +14,7 @@
     gtag('config', 'UA-141674173-1');
   </script>
 
-  <title>Image Classifier</title>
+  <title>Object Detection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <meta name="description"
     content="InceptionResNetv2 model, trained on images from the ILSVR Challenge with 1000 categories." />
@@ -150,10 +150,6 @@
             var percentComplete = evt.loaded / evt.total;
             percentComplete = parseInt(percentComplete * 100);
             document.getElementsByClassName("progress-bar")[0].style.width = percentComplete + "%";
-
-            if (percentComplete === 100) {
-              $("#progress").addClass("hide");
-            }
           }
         }, false);
 
@@ -166,6 +162,9 @@
       cache: false,
       processData: false,
       success: function (d) {
+        $("#progress").addClass("hide");
+        document.getElementsByClassName("progress-bar")[0].style.width = "0%";
+
         $("#image").attr("src", d.img_path);
         $("#file-form").addClass("hide");
         $("#desc").addClass("hide");
