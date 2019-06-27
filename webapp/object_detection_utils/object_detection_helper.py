@@ -341,7 +341,8 @@ def draw_bbox_on_orig(original_image_path, transformed_image, scores, bbox_preds
     print(f'bbox proportions to original: x={x_prop}, y={y_prop}')
 
     draw = ImageDraw.Draw(img)
-    fnt = ImageFont.truetype("static/fonts/calibrib.ttf", img_height//30)
+    fnt = ImageFont.truetype(
+        "static/fonts/Raleway-SemiBold.ttf", img_height//30)
     for score, bbox_pred, class_name in zip(scores, bbox_preds, class_names):
         bbox_pred[0], bbox_pred[1], bbox_pred[2], bbox_pred[3] = bbox_pred[1], bbox_pred[0], bbox_pred[3], bbox_pred[2]
         # change from y0, x0, width, length to y0, x0, y1, x1
