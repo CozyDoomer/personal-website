@@ -1,10 +1,8 @@
 #!/venv/bin python
 
 import os
-import json
 import sys
-import logging
-from flask import Flask, render_template, current_app, request, flash, jsonify
+from flask import Flask, render_template, current_app, request, jsonify
 from flask_mail import Mail, Message
 from forms import EmailForm
 
@@ -79,8 +77,11 @@ def install_secret_key(app, filename='secret_key'):
 @app.route('/')
 def home():
     form = EmailForm(request.form)
-    return render_template('index.html', form=form, mail=current_app.config['MAIL_USERNAME'], nnet_library=nnet_library,
-                           library_link=library_links[nnet_library], name=model_name, link=model_links[model_name])
+    return render_template('index.html', form=form,
+                           mail=current_app.config['MAIL_USERNAME'],
+                           nnet_library=nnet_library,
+                           library_link=library_links[nnet_library],
+                           name=model_name, link=model_links[model_name])
 
 
 @app.route('/message', methods=['POST'])
@@ -89,7 +90,8 @@ def send_message():
     if form.validate():
         app.config.from_object('email_conf.Config')
         mail = Mail(app)
-        msg = Message(sender=current_app.config['MAIL_USERNAME'], recipients=[current_app.config['MAIL_USERNAME']],
+        msg = Message(sender=current_app.config['MAIL_USERNAME'],
+                      recipients=[current_app.config['MAIL_USERNAME']],
                       subject=f'message from {form.name.data} through website')
         mail.body = form.message.data
         msg.html = f'{form.email.data}<br>{mail.body}'

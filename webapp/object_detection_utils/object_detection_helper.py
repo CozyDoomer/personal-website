@@ -193,8 +193,7 @@ def show_results_side_by_side(learn: Learner, anchors, detect_thresh: float = 0.
         prediction_batch = learn.model(img_batch[:image_count])
         class_pred_batch, bbox_pred_batch = prediction_batch[:2]
 
-        bbox_gt_batch, class_gt_batch = target_batch[0][:
-                                                        image_count], target_batch[1][:image_count]
+        bbox_gt_batch, class_gt_batch = target_batch[0][:image_count], target_batch[1][:image_count]
 
         for img, bbox_gt, class_gt, clas_pred, bbox_pred in list(
                 zip(img_batch, bbox_gt_batch, class_gt_batch, class_pred_batch, bbox_pred_batch)):
@@ -207,8 +206,8 @@ def show_results_side_by_side(learn: Learner, anchors, detect_thresh: float = 0.
                 clas_pred, bbox_pred, anchors, detect_thresh)
             if bbox_pred is not None:
                 to_keep = nms(bbox_pred, scores, nms_thresh)
-                bbox_pred, preds, scores = bbox_pred[to_keep].cpu(
-                ), preds[to_keep].cpu(), scores[to_keep].cpu()
+                bbox_pred, preds, scores = bbox_pred[to_keep].cpu(),
+                preds[to_keep].cpu(), scores[to_keep].cpu()
 
             t_sz = torch.Tensor([*img.size])[None].cpu()
             bbox_gt = bbox_gt[np.nonzero(class_gt)].squeeze(dim=1).cpu()

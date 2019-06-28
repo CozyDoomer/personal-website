@@ -1,21 +1,21 @@
 FROM python:3.6.8-slim
 
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
-    && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-    && echo "LANG=en_US.UTF-8" > /etc/locale.conf \
-    && apt-get update && apt-get install -y locales \
-    && locale-gen en_US.UTF-8 \
-    && rm -rf /var/lib/apt/lists/* \
-    \
-    && pip install https://download.pytorch.org/whl/cpu/torch-1.1.0-cp36-cp36m-linux_x86_64.whl \
-    https://download.pytorch.org/whl/cpu/torchvision-0.3.0-cp36-cp36m-linux_x86_64.whl \
-    matplotlib==3.0.3 \
-    && rm -rf /root/.cache/pip
+  && echo "LC_ALL=en_US.UTF-8" >> /etc/environment \
+  && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+  && echo "LANG=en_US.UTF-8" > /etc/locale.conf \
+  && apt-get update && apt-get install -y locales \
+  && locale-gen en_US.UTF-8 \
+  && rm -rf /var/lib/apt/lists/* \
+  \
+  && pip install https://download.pytorch.org/whl/cpu/torch-1.1.0-cp36-cp36m-linux_x86_64.whl \
+  https://download.pytorch.org/whl/cpu/torchvision-0.3.0-cp36-cp36m-linux_x86_64.whl \
+  matplotlib==3.0.3 \
+  && rm -rf /root/.cache/pip
 
 ENV LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+  LANGUAGE=en_US:en \
+  LC_ALL=en_US.UTF-8
 
 # add user webapp
 RUN useradd -ms /bin/bash webapp
