@@ -8,6 +8,8 @@ webapp/static/conf/email.csv
 etc/html/**
 etc/nginx/certs/**
 
+.vscode/**
+
 *.png
 *.jpg
 *.webp
