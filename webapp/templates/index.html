@@ -76,7 +76,7 @@
       <div class="flex">
         <div class="text">
           Hello, I'm <span class="highlight">Christian Unterrainer</span>.
-          <br /> I'm a Software Developer and aspiring Machine Learning Engineer.
+          <br /> I'm a Software Developer with passion for AI and DevOps.
         </div>
 
         <div class="button page-link" dest="about">
@@ -110,40 +110,15 @@
             <!-- <div><img class="up-arrow" src="img/up-arrow.png"></div> -->
             <div class="label bold">Who's this guy?</div>
             <div>
-              <p>
-                I started out as software developer graduating from HTL Wiener Neustadt, mostly working
-                with C# and
-                Python.
-              </p>
-              <p>
-                Over time I have gained experience in web development, SCRUM and best practices in coding (eg.
-                git, unit-testing, docker).
-              </p>
-
-              <p>
-                In the last year I spent a lot of time working on machine-learning tasks on
-                <a class="highlight" href="https://www.kaggle.com/dollofcuty/competitions" target="_blank">Kaggle</a>
-                for structured
-                and unstructured data.
-              </p>
+              <p> I'm a AI Developer for ResInSight in Vienna. </p>
+              <p> I love interesting applications of computational statistics, clean maintainable code and DevOps best practices. </p>
             </div>
+            <p>
+              <span class="page-link highlight" dest="contact">If you want to work together just hit me up.</span>
+            </p>
           </div>
 
           <div class="flex flex-50-gt-sm waypoint bars-wrap" data-animation="slide-in-right">
-            <div class="bar flex">
-              <div class="bar fill" style="width:65%">
-                <div class="tag bold flex">Machine Learning</div>
-              </div>
-              <span>60%</span>
-            </div>
-
-            <div class="bar flex">
-              <div class="bar fill" style="width:75%">
-                <div class="tag bold flex">Computer Vision</div>
-              </div>
-              <span>70%</span>
-            </div>
-
             <div class="bar flex">
               <div class="bar fill" style="width:85%">
                 <div class="tag bold flex">Python</div>
@@ -152,10 +127,17 @@
             </div>
 
             <div class="bar flex">
-              <div class="bar fill" style="width:75%">
+              <div class="bar fill" style="width:65%">
+                <div class="tag bold flex">C++</div>
+              </div>
+              <span>60%</span>
+            </div>
+
+            <div class="bar flex">
+              <div class="bar fill" style="width:65%">
                 <div class="tag bold flex">C#</div>
               </div>
-              <span>70%</span>
+              <span>60%</span>
             </div>
 
             <div class="bar flex">
@@ -167,35 +149,43 @@
 
             <div class="bar flex">
               <div class="bar fill" style="width:65%">
-                <div class="tag bold flex">SCRUM</div>
+                <div class="tag bold flex">HTML/CSS</div>
               </div>
               <span>60%</span>
             </div>
 
             <div class="bar flex">
-              <div class="bar fill" style="width:55%">
-                <div class="tag bold flex">Web Dev</div>
+              <div class="bar fill" style="width:60%">
+                <div class="tag bold flex">Javascript</div>
               </div>
-              <span>50%</span>
+              <span>55%</span>
+            </div>
+
+            <div class="bar flex">
+              <div class="bar fill" style="width:80%">
+                <div class="tag bold flex">AI Development</div>
+              </div>
+              <span>75%</span>
+            </div>
+
+            <div class="bar flex">
+              <div class="bar fill" style="width:70%">
+                <div class="tag bold flex">DevOps</div>
+              </div>
+              <span>65%</span>
             </div>
 
             <div class="bar flex">
               <div class="bar fill" style="width:65%">
-                <div class="tag bold flex">Dev Ops</div>
+                <div class="tag bold flex">Web Dev</div>
               </div>
               <span>60%</span>
             </div>
             <br />
-            <p>
-              I'm currently looking for a job in the Machine Learning field.
-            </p>
+
             <p>
               You can download my CV
               <a class="highlight" href="{{ url_for('cv.download') }}">here</a>.
-            </p>
-            <p>
-              If you are interested in working together
-              <span class="page-link highlight" dest="contact">send me a message.</span>
             </p>
           </div>
         </div>
@@ -370,6 +360,11 @@
           <div id="success">
             <div>
               Your message was sent successfully. Thanks!<span id="close" class="mdi mdi-close"></span>
+            </div>
+          </div>
+          <div id="error">
+            <div>
+              There was an error sending your message!<span id="close" class="mdi mdi-close"></span>
             </div>
           </div>
           <input class="button" type="submit" id="submit" value="SUBMIT" />

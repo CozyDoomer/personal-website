@@ -302,6 +302,10 @@ nav.fixed.desk {
   animation: popDown 0.5s;
 }
 
+.page-link {
+  cursor: pointer;
+}
+
 nav .link-wrap {
   max-width: 1200px;
   width: 100%;
